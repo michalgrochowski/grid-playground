@@ -2,8 +2,8 @@
     display: grid;
     width: 960px;
     height: 960px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-auto-flow: row;
@@ -14,13 +14,11 @@
 .grid-item {
     transition: 0.5s all;
     position: relative;
-    background-color: red;
 }
 
 .grid-item__button {
     cursor: pointer;
     position: absolute;
-    top: 1rem;
     border: none;
     background: transparent;
     color: #333333;
@@ -32,12 +30,15 @@
         transition: 0.3s all;
     }
     &--edit {
-        left: 0;
+        top: 1.5rem;
+        left: 0.5rem;
     }
     &--delete {
-        right: 0;
+        top: 1.5rem;
+        right: 0.5rem;
     }
     &--add {
+        top: 1rem;
         border: 1px solid black;
         width: 13rem;
         height: 3rem;
@@ -50,4 +51,44 @@
             color: #ffffff;
         }
     }
+    &--accept {
+        font-size: 2rem;
+        bottom: 1rem;
+        left: 25%;
+    }
+    &--cancel-inner {
+        font-size: 2rem;
+        bottom: 1rem;
+        right: 25%;
+    }
+}
+
+.grid-item__options {
+    background-color: #999999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    &--expanded {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+.grid-item__label {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    font-size: 1.4rem;
+}
+
+.grid-item__input {
+    display: block;
+    width: 40%;
+    height: 1.5rem;
+    margin: 0 auto;
 }

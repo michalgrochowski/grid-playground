@@ -117,4 +117,29 @@
         });
     };
 
+    // Show grid item options
+
+    const ITEM__OPTIONS = document.getElementsByClassName("grid-item__button--edit");
+
+    for (let item of ITEM__OPTIONS) {
+        item.addEventListener("click", (event) => {
+            let formElement = event.target.nextElementSibling;
+            formElement.classList.add("grid-item__options--expanded");
+        });
+    };
+
+    // Close grid item options
+
+    const ITEM__OPTIONS_CLOSE = document.getElementsByClassName("grid-item__button--cancel-inner");
+
+    for (let item of ITEM__OPTIONS_CLOSE) {
+        item.addEventListener("click", (event) => {
+            e.preventDefault();
+            e.stopPropagation();
+            let formElement = event.target.parentNode;
+            /* formElement.classList.remove("grid-item__options--expanded");*/
+            console.log(formElement);
+        });
+    };
+
 })();

@@ -75,9 +75,9 @@
 						<label class="options-form__label" for="gridHeight">height (px, rem, vh vw or %):</label>
 						<input id="gridHeight" class="options-form__input" type="text" value="960px">
 						<label class="options-form__label" for="gridColumns">columns (number):</label>
-						<input id="gridColumns" class="options-form__input" type="text" value="4">
+						<input id="gridColumns" class="options-form__input" type="text" value="3">
 						<label class="options-form__label" for="gridRows">rows (number):</label>
-						<input id="gridRows" class="options-form__input" type="text" value="5">
+						<input id="gridRows" class="options-form__input" type="text" value="4">
 						<label class="options-form__label" for="gridColumnGap">column gap (px, rem, vh vw or %):</label>
 						<input id="gridColumnGap" class="options-form__input" type="text" value="10px">
 						<label class="options-form__label" for="gridRowGap">row gap (px, rem, vh, vw or %):</label>
@@ -95,44 +95,24 @@
 			<div id="grid" class="grid-container">
 				<button id="addGridItem" class="grid-item__button grid-item__button--add"><span class="icon-plus"></span> Add</button>
 				<div class="grid-item">
-					<button class="grid-item__button grid-item__button--edit">
-						<span class="icon-cog"></span>
-					</button>
 					<button class="grid-item__button grid-item__button--delete">
 						<span class="icon-cancel"></span>
 					</button>
-				</div>
-				<div class="grid-item">
 					<button class="grid-item__button grid-item__button--edit">
 						<span class="icon-cog"></span>
 					</button>
-					<button class="grid-item__button grid-item__button--delete">
-						<span class="icon-cancel"></span>
-					</button>
-				</div>
-				<div class="grid-item">
-					<button class="grid-item__button grid-item__button--edit">
-						<span class="icon-cog"></span>
-					</button>
-					<button class="grid-item__button grid-item__button--delete">
-						<span class="icon-cancel"></span>
-					</button>
-				</div>
-				<div class="grid-item">
-					<button class="grid-item__button grid-item__button--edit">
-						<span class="icon-cog"></span>
-					</button>
-					<button class="grid-item__button grid-item__button--delete">
-						<span class="icon-cancel"></span>
-					</button>
-				</div>
-				<div class="grid-item">
-					<button class="grid-item__button grid-item__button--edit">
-						<span class="icon-cog"></span>
-					</button>
-					<button class="grid-item__button grid-item__button--delete">
-						<span class="icon-cancel"></span>
-					</button>
+					<form class="grid-item__options">
+						<label class="grid-item__label" for="">grid-column-start:</label>
+						<input id="gridColumnStart" class="grid-item__input" type="text">
+						<label class="grid-item__label" for="">grid-column-end:</label>
+						<input id="gridColumnEnd" class="grid-item__input" type="text">
+						<label class="grid-item__label" for="">grid-column-end:</label>
+						<input id="gridColumnEnd" class="grid-item__input" type="text">
+						<label class="grid-item__label" for="">grid-column-end:</label>
+						<input id="gridColumnEnd" class="grid-item__input" type="text">
+						<button class="grid-item__button grid-item__button--accept"><span class="icon-ok"></span></button>
+						<button class="grid-item__button grid-item__button--cancel-inner"><span class="icon-cancel"></span></button>
+					</form>
 				</div>
 				<div class="grid-item">
 					<button class="grid-item__button grid-item__button--edit">
