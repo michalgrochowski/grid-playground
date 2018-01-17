@@ -1,4 +1,5 @@
 @import '_mixins.scss';
+@import '_social-nav.scss';
 @import '_grid.scss';
 @import '_grid-options.scss';
 @import '_options-form.scss';
@@ -31,7 +32,7 @@ body {
 }
 
 .container__subtitle {
-    margin-top: 0;
+    margin: 0;
 }
 
 .section {

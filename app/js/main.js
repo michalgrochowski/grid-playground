@@ -42,6 +42,9 @@
     const GRID_HEIGHT = document.getElementById("gridHeight");
     const GRID_COLUMNS = document.getElementById("gridColumns");
     const GRID_ROWS = document.getElementById("gridRows");
+    const COLUMN_GAP = document.getElementById("gridColumnGap");
+    const ROW_GAP = document.getElementById("gridRowGap");
+    const AUTOFLOW = document.getElementById("gridAutoFlow");
 
     GRID_HEIGHT.addEventListener("change", () => {
         GRID.style.height = GRID_HEIGHT.value;
@@ -59,6 +62,37 @@
     GRID_ROWS.addEventListener("change", () => {
         let rowsNumber = GRID_ROWS.value;
         GRID.style.gridTemplateRows = `repeat(${rowsNumber}, 1fr)`;
+    });
+
+    COLUMN_GAP.addEventListener("change", () => {
+        let columnGap = COLUMN_GAP.value;
+        GRID.style.gridColumnGap = `${columnGap}`;
+    });
+
+    ROW_GAP.addEventListener("change", () => {
+        let rowGap = ROW_GAP.value;
+        GRID.style.gridRowGap = `${rowGap}`;
+    });
+
+    AUTOFLOW.addEventListener("change", () => {
+        let autoFlow = AUTOFLOW.value;
+        GRID.style.gridAutoFlow = `${autoFlow}`;
+    });
+
+    // Add and remove grid items
+
+    const ADD_ITEM = document.getElementById("addGridItem");
+
+    ADD_ITEM.addEventListener("click", () => {
+        let newItem = document.createElement("div");
+        let editButton = document.createElement("button");
+        let editIcon = document.createElement("span");
+        newItem.classList.add("grid-item");
+        editButton.classList.add("grid-item__edit");
+        editIcon.classList.add("icon-cog");
+        editButton.appendChild(editIcon);
+        newItem.appendChild(editButton);
+        GRID.appendChild(newItem);
     });
 
 })();

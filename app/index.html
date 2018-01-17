@@ -9,77 +9,218 @@
 	<!-- Add new css files here so gulp-useref can bundle them in one file -->
 	<!--build:css css/main.min.css -->
 	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/fontello.css">
 	<link rel="stylesheet" href="css/main.css">
 	<!-- endbuild -->
 	<!-- Basic page info -->
-	<title>...</title>
-	<meta name="description" content="...">
-	<meta name="keywords" content="...">
+	<title>CSS Grid Playground</title>
+	<meta name="description" content="Learn CSS grid by changing it's properties live.">
+	<meta name="keywords" content="css, grid, css grid, dobry, webdev, dobrywebdev, playground, learning, frontend, front-end">
 	<meta name="author" content="Michał Grochowski">
 	<!-- Open Graph properties -->
-	<meta property="og:title" content="...">
+	<meta property="og:title" content="CSS Grid Playground">
 	<meta property="og:url" content="...">
 	<meta property="og:image" content="img/...">
-	<meta property="og:description" content="...">
+	<meta property="og:description" content="earn CSS grid by changing it's properties live.">
 	<!-- Twitter card properties -->
 	<meta name="twitter:card" content="...">
 	<meta name="twitter:url" content="...">
-	<meta name="twitter:title" content="...">
-	<meta name="twitter:description" content="...">
+	<meta name="twitter:title" content="CSS Grid Playground">
+	<meta name="twitter:description" content="earn CSS grid by changing it's properties live.">
 	<meta name="twitter:image" content="img/...">
-	<meta name="twitter:image:alt" content="...">
-	<meta name="twitter:site" content="@...">
-	<meta name="twitter:creator" content="@...">
+	<meta name="twitter:image:alt" content="CSS Grid Playground">
+	<meta name="twitter:site" content="@dobrywebdev">
+	<meta name="twitter:creator" content="@dobrywebdev">
 	<!-- Icons and manifest - should be in a root folder -->
 	<!-- Use https://realfavicongenerator.net/ to generate icons and meta tags, but use a manifest.json from this boilerplate and edit it to your needs -->
 	<link rel="manifest" href="/manifest.json">
 </head>
 <body id="body" class=""> 
+	<nav class="social-nav">
+		<ul class="social-nav__list">
+			<li class="social-nav__item">
+				<a class="social-nav__link" href="https://twitter.com/dobrywebdev" title="" rel="noopener" target="_blank">
+					<span class="icon-twitter"></span>
+				</a>
+			</li>
+			<li class="social-nav__item">
+				<a class="social-nav__link" href="https://www.linkedin.com/in/micha%C5%82-grochowski-962a45131/" title="" rel="noopener" target="_blank">
+					<span class="icon-linkedin"></span>
+				</a>
+			</li>
+			<li class="social-nav__item">
+				<a class="social-nav__link" href="https://github.com/michalgrochowski" title="" rel="noopener" target="_blank">
+					<span class="icon-github-circled"></span>
+				</a>
+			</li>
+			<li class="social-nav__item">
+				<a class="social-nav__link" href="https://dobrywebdev.pl" title="" rel="noopener" target="_blank">
+					<span class="icon-user-o"></span>
+				</a>
+			</li>
+		</ul>
+	</nav>
 	<main class="container">
 		<h1 class="container__title">CSS Grid Playground</h1>
-		<p class="container__subtitle">Change the options below and see how the grid changes.</p>
+		<p class="container__subtitle">Play with the options below and see how the grid changes.</p>
+		<p class="container__subtitle">You can also add or remove any item from the grid.</p>
 		<section id="" class="section">  
 			<div id="options-box" class="grid-options">
-				<button id="options-button" class="grid-options__button">Options</button>
+				<button id="options-button" class="grid-options__button">Grid options</button>
 				<form class="options-form options-form--grid">
 					<fieldset class="options-form__fieldset">
 						<legend class="options-form__legend">Grid options:</legend>
-						<label for="gridWidth">width (px, rem, vh or %):</label>
+						<label class="options-form__label" for="gridWidth">width (px, rem, vh vw or %):</label>
 						<input id="gridWidth" class="options-form__input" type="text" value="960px">
-						<label for="gridHeight">height (px, rem, vh or %):</label>
+						<label class="options-form__label" for="gridHeight">height (px, rem, vh vw or %):</label>
 						<input id="gridHeight" class="options-form__input" type="text" value="960px">
-						<label for="gridColumns">columns:</label>
+						<label class="options-form__label" for="gridColumns">columns (number):</label>
 						<input id="gridColumns" class="options-form__input" type="text" value="4">
-						<label for="gridRows">rows:</label>
-						<input id="gridRows" class="options-form__input" type="text" value="4">
-					</fieldset>
-				</form>
-				<form class="options-form options-form--items">
-					<fieldset class="options-form__fieldset">
-						<legend class="options-form__legend">Items options:</legend>
-						<label for="items">items:</label>
-						<input id="items" class="options-form__input" type="text">
+						<label class="options-form__label" for="gridRows">rows (number):</label>
+						<input id="gridRows" class="options-form__input" type="text" value="5">
+						<label class="options-form__label" for="gridColumnGap">column gap (px, rem, vh vw or %):</label>
+						<input id="gridColumnGap" class="options-form__input" type="text" value="10px">
+						<label class="options-form__label" for="gridRowGap">row gap (px, rem, vh, vw or %):</label>
+						<input id="gridRowGap" class="options-form__input" type="text" value="10px">
+						<label class="options-form__label" for="gridAutoFlow">grid autoflow:</label>
+						<select id="gridAutoFlow" class="options-form__select">
+							<option>row</option>
+							<option>column</option>
+							<option>dense</option>
+						</select>
 					</fieldset>
 				</form>
 			</div>
 			<h2 class="section__title">Here is your grid:</h2>
 			<div id="grid" class="grid-container">
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
-				<div class="grid-item"></div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
+				<div class="grid-item">
+					<button class="grid-item__button grid-item__button--edit">
+						<span class="icon-cog"></span>
+					</button>
+					<button class="grid-item__button grid-item__button--delete">
+						<span class="icon-cancel"></span>
+					</button>
+				</div>
 			</div>
 		</section>
 		<footer id="footer" class="footer">

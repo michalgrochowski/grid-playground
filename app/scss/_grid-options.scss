@@ -16,11 +16,17 @@
     background: none;
     border: none;
     border: 1px solid black;
-    width: 10rem;
+    width: 13rem;
     height: 3rem;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: 1rem;
+    transition: 0.3s all;
+    &:hover {
+        transition: 0.3s all;
+        background-color: #333333;
+        color: #ffffff;
+    }
 }

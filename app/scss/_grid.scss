@@ -3,12 +3,37 @@
     width: 960px;
     height: 960px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+    grid-auto-flow: row;
     transition: 0.5s all;
 }
 
 .grid-item {
     transition: 0.5s all;
+    position: relative;
+    background-color: red;
+}
+
+.grid-item__button {
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    border: none;
+    background: transparent;
+    color: #333333;
+    opacity: 0.8;
+    transition: 0.3s all;
+    &:hover {
+        color: #111111;
+        opacity: 1;
+        transition: 0.3s all;
+    }
+    &--edit {
+        left: 0;
+    }
+    &--delete {
+        right: 0;
+    }
 }
