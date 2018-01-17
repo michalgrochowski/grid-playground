@@ -86,12 +86,21 @@
     ADD_ITEM.addEventListener("click", () => {
         let newItem = document.createElement("div");
         let editButton = document.createElement("button");
+        let deleteButton = document.createElement("button");
         let editIcon = document.createElement("span");
-        newItem.classList.add("grid-item");
-        editButton.classList.add("grid-item__edit");
+        let deleteIcon = document.createElement("span");
         editIcon.classList.add("icon-cog");
+        deleteIcon.classList.add("icon-cancel");
+        editButton.classList.add("grid-item__button");
+        editButton.classList.add("grid-item__button--edit");
+        deleteButton.classList.add("grid-item__button");
+        deleteButton.classList.add("grid-item__button--delete");
+        newItem.classList.add("grid-item");
         editButton.appendChild(editIcon);
+        deleteButton.appendChild(deleteIcon);
         newItem.appendChild(editButton);
+        newItem.appendChild(deleteButton);
+        newItem.style.backgroundColor = getRandomBackground();
         GRID.appendChild(newItem);
     });
 

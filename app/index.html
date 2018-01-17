@@ -70,7 +70,7 @@
 				<form class="options-form options-form--grid">
 					<fieldset class="options-form__fieldset">
 						<legend class="options-form__legend">Grid options:</legend>
-						<label class="options-form__label" for="gridWidth">width (px, rem, vh vw or %):</label>
+						<label class="options-form__label" for="gridWidth">width (px, rem, vh vw or %): <span class="icon-help-circled"></span></label>
 						<input id="gridWidth" class="options-form__input" type="text" value="960px">
 						<label class="options-form__label" for="gridHeight">height (px, rem, vh vw or %):</label>
 						<input id="gridHeight" class="options-form__input" type="text" value="960px">
@@ -93,6 +93,7 @@
 			</div>
 			<h2 class="section__title">Here is your grid:</h2>
 			<div id="grid" class="grid-container">
+				<button id="addGridItem" class="grid-item__button grid-item__button--add"><span class="icon-plus"></span> Add</button>
 				<div class="grid-item">
 					<button class="grid-item__button grid-item__button--edit">
 						<span class="icon-cog"></span>

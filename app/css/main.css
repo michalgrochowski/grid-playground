@@ -46,7 +46,8 @@
   grid-row-gap: 10px;
   grid-auto-flow: row;
   -webkit-transition: 0.5s all;
-  transition: 0.5s all; }
+  transition: 0.5s all;
+  position: relative; }
 
 .grid-item {
   -webkit-transition: 0.5s all;
@@ -73,6 +74,18 @@
     left: 0; }
   .grid-item__button--delete {
     right: 0; }
+  .grid-item__button--add {
+    border: 1px solid black;
+    width: 13rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    top: -5rem;
+    padding: 0 2rem 0 0; }
+    .grid-item__button--add:hover {
+      -webkit-transition: 0.3s all;
+      transition: 0.3s all;
+      background-color: #333333;
+      color: #ffffff; }
 
 .grid-options {
   position: relative;
@@ -134,7 +147,8 @@
 
 .options-form__label {
   text-align: center;
-  display: block; }
+  display: block;
+  margin: 0.5rem; }
 
 .options-form__input {
   margin: 0 auto;

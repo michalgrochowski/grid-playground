@@ -8,6 +8,7 @@
     grid-row-gap: 10px;
     grid-auto-flow: row;
     transition: 0.5s all;
+    position: relative;
 }
 
 .grid-item {
@@ -35,5 +36,18 @@
     }
     &--delete {
         right: 0;
+    }
+    &--add {
+        border: 1px solid black;
+        width: 13rem;
+        height: 3rem;
+        border-radius: 1.5rem;
+        top: -5rem;
+        padding: 0 2rem 0 0;
+        &:hover {
+            transition: 0.3s all;
+            background-color: #333333;
+            color: #ffffff;
+        }
     }
 }
