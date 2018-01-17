@@ -1,0 +1,18 @@
+.bonus-materials {
+    @include flex-center-column;
+    padding: 0 7rem;
+}
+
+.bonus-materials__title {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.bonus-materials__description {
+    margin-top: 0;
+}
+
+.bonus-materials__link {
+    display: block;
+    color: #333333;
+}
