@@ -117,6 +117,42 @@
         });
     };
 
+    // Change grid item properties
+
+    const GRID_COLUMN_START = document.getElementsByClassName("gridColumnStart")
+    const GRID_COLUMN_END = document.getElementsByClassName("gridColumnEnd")
+    const GRID_ROW_START = document.getElementsByClassName("gridRowStart")
+    const GRID_ROW_END = document.getElementsByClassName("gridRowEnd")
+
+    for (let item of GRID_COLUMN_START) {
+        item.addEventListener("change", (event) => {
+            let gridOptionValue = event.target.value;
+            event.target.parentNode.parentNode.style.gridColumnStart = `${gridOptionValue}`;
+        });
+    }
+
+    for (let item of GRID_COLUMN_END) {
+        item.addEventListener("change", (event) => {
+            let gridOptionValue = event.target.value;
+            event.target.parentNode.parentNode.style.gridColumnEnd = `${gridOptionValue}`;
+        });
+    }
+
+    for (let item of GRID_ROW_START) {
+        item.addEventListener("change", (event) => {
+            let gridOptionValue = event.target.value;
+            event.target.parentNode.parentNode.style.gridRowStart = `${gridOptionValue}`;
+        });
+    }
+
+    for (let item of GRID_ROW_END) {
+        item.addEventListener("change", (event) => {
+            let gridOptionValue = event.target.value;
+            event.target.parentNode.parentNode.style.gridRowEnd = `${gridOptionValue}`;
+        });
+    }
+
+    /*
     // Show grid item options
 
     const ITEM__OPTIONS = document.getElementsByClassName("grid-item__button--edit");
@@ -127,19 +163,22 @@
             formElement.classList.add("grid-item__options--expanded");
         });
     };
+    */
 
+    /*
     // Close grid item options
 
     const ITEM__OPTIONS_CLOSE = document.getElementsByClassName("grid-item__button--cancel-inner");
-
+    
     for (let item of ITEM__OPTIONS_CLOSE) {
         item.addEventListener("click", (event) => {
             e.preventDefault();
             e.stopPropagation();
             let formElement = event.target.parentNode;
-            /* formElement.classList.remove("grid-item__options--expanded");*/
+            formElement.classList.remove("grid-item__options--expanded");
             console.log(formElement);
         });
     };
-
+    */
+    
 })();
