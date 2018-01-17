@@ -1,7 +1,7 @@
 {
-    "name": "App name",
+    "name": "CSS Grid playground",
     "start_url": "./index.html",
-    "short_name": "App name",
+    "short_name": "CSS Grid",
     "icons": [
         {
             "src": "/android-chrome-36x36.png",

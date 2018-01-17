@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Add a Google Font of choice or remove this -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/..."> 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&amp;subset=latin-ext">
 	<!-- Add new css files here so gulp-useref can bundle them in one file -->
 	<!--build:css css/main.min.css -->
 	<link rel="stylesheet" href="css/normalize.css">
@@ -35,38 +35,51 @@
 	<link rel="manifest" href="/manifest.json">
 </head>
 <body id="body" class=""> 
-	<header class="header">
-		<nav class="nav">
-			<img class="nav__logo" src="img/..." alt="">
-			<ul class="nav__list">
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-				<li class="nav__item"><a class="nav__link" href="..." title="">...</a></li>
-			</ul>
-		</nav> 
-	</header>
 	<main class="container">
-		<h1 class="container__title">...</h1>
+		<h1 class="container__title">CSS Grid Playground</h1>
+		<p class="container__subtitle">Change the options below and see how the grid changes.</p>
 		<section id="" class="section">  
-			<h2 class="section__title">...</h2>
-			
-		</section>   
-		<section id="" class="section">  
-			<h2 class="section__title">...</h2>
-			
-		</section> 
-		<section id="" class="section">  
-			<h2 class="section__title">...</h2>
-				
-		</section>
-		<section id="" class="section">  
-			<h2 class="section__title">...</h2>
-
+			<div id="options-box" class="grid-options">
+				<button id="options-button" class="grid-options__button">Options</button>
+				<form class="options-form options-form--grid">
+					<fieldset class="options-form__fieldset">
+						<legend class="options-form__legend">Grid options:</legend>
+						<label for="gridColumns">columns:</label>
+						<input id="gridColumns" class="options-form__input" type="text" value="4">
+						<label for="gridRows">rows:</label>
+						<input id="gridRows" class="options-form__input" type="text" value="4">
+					</fieldset>
+				</form>
+				<form class="options-form options-form--items">
+					<fieldset class="options-form__fieldset">
+						<legend class="options-form__legend">Items options:</legend>
+						<label for="items">items:</label>
+						<input id="items" class="options-form__input" type="text">
+					</fieldset>
+				</form>
+			</div>
+			<h2 class="section__title">Here is your grid:</h2>
+			<div id="grid" class="grid-container">
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+				<div class="grid-item"></div>
+			</div>
 		</section>
 		<footer id="footer" class="footer">
-
+			<p class="footer__text">Built by Michał Grochowski @ <a class="footer__link" href="https://dobrywebdev.pl">dobrywebdev.pl</a></p>
 		</footer>
 	</main>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

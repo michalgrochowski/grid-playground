@@ -1,0 +1,26 @@
+.grid-options {
+    position: relative;
+    height: 50px;
+    width: 80%;
+    transition: 0.5s all;
+    overflow: hidden;
+    @include flex-row;
+    &--expanded {
+        height: 300px;
+        transition: 0.5s all;
+    }
+}
+
+.grid-options__button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    border: 1px solid black;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1rem;
+}

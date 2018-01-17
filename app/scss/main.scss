@@ -1,9 +1,14 @@
 @import '_mixins.scss';
+@import '_grid.scss';
+@import '_grid-options.scss';
+@import '_options-form.scss';
+@import '_footer.scss';
 
 // Main Styles
+
 html {
     font-size: 10px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     line-height: 1.6;
 }
 body {
@@ -11,46 +16,24 @@ body {
     font-size: 1.6rem;
     color: #333;
 }
-// Header and nav
-.header {
-    
-}
-.nav {
-    @include flex-row;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-.nav__logo {
-    align-self: flex-start;
-}
-.nav__list {
-    @include flex-row;
-    justify-content: flex-end;
-    width: 100%;
-}
-.nav__item {
-    font-size: 1.8rem;
-    margin: 1rem 1.5rem 1rem 1.5rem;
-    display: block;
-}
-.nav__item:last-of-type {
-    margin-right: 3rem;
-}
-.nav__link {
-    color: #ffffff;
-    text-decoration: none;
-}
+
+
 // Main layout
+
 .container {
     @include flex-center-column;
 }
+
 .container__title {
     color: #333333;
     margin-top: 5rem;
+    margin-bottom: 0;
 }
+
+.container__subtitle {
+    margin-top: 0;
+}
+
 .section {
     background-color: #ffffff;
     @include flex-center-row;
@@ -62,12 +45,14 @@ body {
         width: 100%;
     }
 }
+
 .section__title {
     flex-basis: 100%;
     text-align: center;
 }
 
 // Misc items
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #ffffff;
     text-indent: 1rem;
