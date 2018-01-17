@@ -37,19 +37,26 @@
         top: 1.5rem;
         right: 0.5rem;
     }
-    &--add {
+    &--add, &--help {
         top: 1rem;
         border: 1px solid black;
-        width: 13rem;
+        width: 15rem;
         height: 3rem;
         border-radius: 1.5rem;
-        top: -5rem;
-        padding: 0 2rem 0 0;
-        &:hover {
+        top: 1rem;
+        &:hover, &:focus {
             transition: 0.3s all;
             background-color: #333333;
             color: #ffffff;
         }
+    }
+    &--add {
+        left: 0;
+        padding: 0 2rem 0 0;
+    }
+    &--help {
+        right: 0;
+        padding: 0 1rem 0 0;
     }
     &--accept {
         font-size: 2rem;

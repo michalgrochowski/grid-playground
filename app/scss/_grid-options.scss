@@ -16,7 +16,7 @@
     background: none;
     border: none;
     border: 1px solid black;
-    width: 13rem;
+    width: 15rem;
     height: 3rem;
     border-radius: 1.5rem;
     position: absolute;
@@ -29,4 +29,54 @@
         background-color: #333333;
         color: #ffffff;
     }
+}
+
+.grid-options__help-box {
+    position: fixed;
+    z-index: 20;
+    top: -100vh;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0,0,0, 0.7);
+    transition: 0.5s all;
+    &--visible {
+        top: 0;
+        transition: 0.5s all;
+    }
+}
+
+.grid-options__article {
+    width: 80vw;
+    min-height: 80vh;
+    margin: 10vh 10vw;
+    background-color: rgba(255,255,255,0.9);
+    @include flex-column;
+    padding: 0 3rem;
+    position: relative;
+}
+
+.grid-options__close-modal {
+    cursor: pointer;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #333333;
+}
+
+.grid-options__title {
+    font-size: 2rem;
+}
+
+.grid-options__subtitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.grid-options__paragraph {
+    font-size: 1.4rem;
+    margin: 0.3rem;  
 }

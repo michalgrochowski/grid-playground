@@ -62,27 +62,52 @@
 	</nav>
 	<main class="container">
 		<h1 class="container__title">CSS Grid Playground</h1>
-		<p class="container__subtitle">Play with the options below and see how the grid changes.</p>
-		<p class="container__subtitle">You can also add, edit or remove any in from the grid.</p>
+		<p class="container__subtitle">Play with the grid options below and see how the layout changes.</p>
+		<p class="container__subtitle">You can also add, edit or remove items from the grid.</p>
+		<p class="container__subtitle">Just put a desired value in the input box and click anywhere to see how it changes the grid.</p>
 		<section id="" class="section">  
+			<h2 class="section__title">Here is your grid:</h2>
 			<div id="options-box" class="grid-options">
-				<button id="options-button" class="grid-options__button">Grid options</button>
-				<form class="options-form options-form--grid">
+				<button id="addGridItem" class="grid-item__button grid-item__button--add"><span class="icon-plus"></span> Add item</button>
+				<button id="optionsButton" class="grid-options__button"><span class="icon-cog"></span> Grid options</button>
+				<button id="showHelp" class="grid-item__button grid-item__button--help"><span class="icon-help-circled"></span> Feeling lost?</button>
+				<div id="helpModal" class="grid-options__help-box">
+					<article class="grid-options__article">
+						<button id="closeModal" class="grid-options__close-modal">Close <span class="icon-cancel"></span></button>
+						<h3 class="grid-options__title">Here are the basic CSS Grid properties used in this app:</h3>
+						<p class="grid-options__subtitle">Grid options:</p>
+						<p class="grid-options__paragraph"><strong>width and height</strong> - pretty self explanatory, it's just height and width of the grid container.</p>
+						<p class="grid-options__paragraph"><strong>columns</strong> - full property name is "grid-template-columns". It tells the grid container on how many columns should it place the grid items. You can put there any value in px, %, rem, em, vh or vw.</p>
+						<p class="grid-options__paragraph"><strong>rows</strong> - full property name is "grid-template-rows". It tells the grid container on how many rows should it place the grid items. You can put there any value in px, %, rem, em, vh or vw.</p>
+						<p class="grid-options__paragraph"><strong>column gap</strong> - full property name is "grid-column-gap". It tell the grid how big should be the gutter between columns. You can put there any value in px, %, rem, em, vh or vw.</p>
+						<p class="grid-options__paragraph"><strong>column gap</strong> - full property name is "grid-row-gap". It tell the grid how big should be the gutter between rows. You can put there any value in px, %, rem, em, vh or vw.</p>
+						<p class="grid-options__paragraph"><strong>grid-auto-flow</strong> - Grid has preety great auto-placement algorithm, and "grid-auto-flow" property defines how should it act. If you set it to "column" it will place new grid items in availble columns or create a new one and place it there. "Row" will place new grid items in availble rows or create a new one and place it there. "Dense" will try to fit new items in availble spots, also changing the order of grid items, so be careful with that.</p>
+						<p class="grid-options__subtitle">Grid item options:</p>
+						<p class="grid-options__paragraph"><strong>grid-column-start</strong> - specifies in which column the item will start. Only integers are allowed.</p>
+						<p class="grid-options__paragraph"><strong>grid-column-end</strong> - specifies in which column the item will end. Only integers are allowed.</p>
+						<p class="grid-options__paragraph"><strong>grid-row-start</strong> - specifies in which row the item will start. Only integers are allowed.</p>
+						<p class="grid-options__paragraph"><strong>grid-row-end</strong> - specifies in which row the item will end. Only integers are allowed.</p>
+						<p class="grid-options__subtitle">Other options:</p>
+						<p class="grid-options__paragraph">CSS Grid offers a lot of more options than shown in this playground. Options like "align-items", "justify-items", "align-content", "justify-content" works preety much the same as in Flexbox, so if you know that you should also be able to use it in your grid, but there is also a new value of these properties - "space-evenly", which is very cool - it evenly adds space between items and container edges. There are also short-hand properties like "grid-template", in which you can even name your rows and columns, "grid-gap" in which you specify both column and row gaps. There is also just "grid" in which you specify all of the above, but for me it makes the code less readable, but if you like it, use it.</p>
+						<p class="grid-options__paragraph">Gris items also have some more properties, like "grid-area" in which you tell the item which named areas of your grid should it take, and of course "align-self" and "justify-self". You can also use short-hand properties "grid-column" and "grid-row" to specify both the start and the end of yout item.</p>
+					</article>
+				</div>
+				<form class="options-form">
 					<fieldset class="options-form__fieldset">
 						<legend class="options-form__legend">Grid options:</legend>
-						<label class="options-form__label" for="gridWidth">width (px, rem, vh vw or %): <button class="help-button icon-help-circled"></button></label>
+						<label class="options-form__label" for="gridWidth">width (px, rem, vh vw or %):</label>
 						<input id="gridWidth" class="options-form__input" type="text" value="960px">
-						<label class="options-form__label" for="gridHeight">height (px, rem, vh vw or %): <button class="help-button icon-help-circled"></button></label>
+						<label class="options-form__label" for="gridHeight">height (px, rem, vh vw or %):</label>
 						<input id="gridHeight" class="options-form__input" type="text" value="960px">
-						<label class="options-form__label" for="gridColumns">columns (number): <button class="help-button icon-help-circled"></button></label>
+						<label class="options-form__label" for="gridColumns">columns (number):</label>
 						<input id="gridColumns" class="options-form__input" type="text" value="3">
-						<label class="options-form__label" for="gridRows">rows (number): <button class="help-button icon-help-circled"></button></label>
+						<label class="options-form__label" for="gridRows">rows (number):</label>
 						<input id="gridRows" class="options-form__input" type="text" value="4">
-						<label class="options-form__label" for="gridColumnGap">column gap (px, rem, vh vw or %): <button class="help-button icon-help-circled"></button></label>
+						<label class="options-form__label" for="gridColumnGap">column gap (px, rem, vh vw or %):</label>
 						<input id="gridColumnGap" class="options-form__input" type="text" value="10px">
-						<label class="options-form__label" for="gridRowGap">row gap (px, rem, vh, vw or %): <button class="help-button icon-help-circled"></button></label>
+						<label class="options-form__label" for="gridRowGap">row gap (px, rem, vh, vw or %):</label>
 						<input id="gridRowGap" class="options-form__input" type="text" value="10px">
-						<label class="options-form__label" for="gridAutoFlow">grid autoflow: <button class="help-button icon-help-circled"></button></label>
+						<label class="options-form__label" for="gridAutoFlow">grid-auto-flow:</label>
 						<select id="gridAutoFlow" class="options-form__select">
 							<option>dense</option>
 							<option>row</option>
@@ -91,22 +116,29 @@
 					</fieldset>
 				</form>
 			</div>
-			<h2 class="section__title">Here is your grid:</h2>
 			<div id="grid" class="grid-container">
-				<button id="addGridItem" class="grid-item__button grid-item__button--add"><span class="icon-plus"></span> Add</button>
+				
 				<div class="grid-item">
 					<button class="grid-item__button grid-item__button--delete">
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start: <button class="help-button icon-help-circled"></button></label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end: <button class="help-button icon-help-circled"></button></label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start: <button class="help-button icon-help-circled"></button></label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end: <button class="help-button icon-help-circled"></button></label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 				<div class="grid-item">
@@ -114,14 +146,22 @@
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start:</label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end:</label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start:</label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end:</label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 				<div class="grid-item">
@@ -129,14 +169,22 @@
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start:</label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end:</label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start:</label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end:</label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 				<div class="grid-item">
@@ -144,14 +192,22 @@
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start:</label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end:</label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start:</label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end:</label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 				<div class="grid-item">
@@ -159,14 +215,22 @@
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start:</label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end:</label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start:</label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end:</label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 				<div class="grid-item">
@@ -174,14 +238,22 @@
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start:</label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end:</label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start:</label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end:</label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 				<div class="grid-item">
@@ -189,14 +261,22 @@
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start:</label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end:</label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start:</label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end:</label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 				<div class="grid-item">
@@ -204,14 +284,22 @@
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start:</label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end:</label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start:</label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end:</label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 				<div class="grid-item">
@@ -219,28 +307,35 @@
 						Delete <span class="icon-cancel"></span>
 					</button>
 					<form class="grid-item__options">
-						<label class="grid-item__label" for="">grid-column-start:</label>
-						<input class="grid-item__input gridColumnStart" type="text">
-						<label class="grid-item__label" for="">grid-column-end:</label>
-						<input class="grid-item__input gridColumnEnd" type="text">
-						<label class="grid-item__label" for="">grid-row-start:</label>
-						<input class="grid-item__input gridRowStart" type="text">
-						<label class="grid-item__label" for="">grid-row-end:</label>
-						<input class="grid-item__input gridRowEnd" type="text">
+						<label class="grid-item__label grid-item__label--column-start">
+							grid-column-start:
+							<input class="grid-item__input gridColumnStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--column-end">
+							grid-column-end:
+							<input class="grid-item__input gridColumnEnd" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-start">
+							grid-row-start:
+							<input class="grid-item__input gridRowStart" type="text">
+						</label>
+						<label class="grid-item__label grid-item__label--row-end">
+							grid-row-end:
+							<input class="grid-item__input gridRowEnd" type="text">
+						</label>
 					</form>
 				</div>
 			</div>
 		</section>
 		<section class="bonus-materials">
 			<h2 class="bonus-materials__title">Additional resources</h2>
-			<p class="bonus-materials__description">Because CSS Grid is much more robust than shown in this app, I recommend looking at additional resources below:</p>
+			<p class="bonus-materials__description">Because CSS Grid is much more robust than shown in this app, I recommend looking at additional resources listed below:</p>
 			<a class="bonus-materials__link" href="https://css-tricks.com/snippets/css/complete-guide-grid/" rel="noopener" target="_blank" title="">CSS Tricks - A Complete Guide to Grid</a>
 			<a class="bonus-materials__link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" rel="noopener" target="_blank" title="">MDN - CSS Grid Layout</a>
 			<a class="bonus-materials__link" href="https://www.youtube.com/watch?v=7kVeCqQCxlk" rel="noopener" target="_blank" title="">[VIDEO] CSS Grid Changes EVERYTHING - Morten Rand-Hendriksen</a>
-			
 		</section>
 		<footer id="footer" class="footer">
-			<p class="footer__text">Built by Michał Grochowski @ <a class="footer__link" href="https://dobrywebdev.pl">dobrywebdev.pl</a></p>
+			<p class="footer__text">Built by Michał Grochowski @ <a class="footer__link" href="https://dobrywebdev.pl" rel="noopener" target="_blank">dobrywebdev.pl</a></p>
 		</footer>
 	</main>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

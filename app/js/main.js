@@ -28,7 +28,7 @@
 
     // Expand grid options menu
 
-    const OPTIONS_BUTTON = document.getElementById("options-button");
+    const OPTIONS_BUTTON = document.getElementById("optionsButton");
     const OPTIONS_BOX = document.getElementById("options-box");
 
     OPTIONS_BUTTON.addEventListener("click", () => {
@@ -85,22 +85,36 @@
 
     ADD_ITEM.addEventListener("click", () => {
         let newItem = document.createElement("div");
-        let editButton = document.createElement("button");
         let deleteButton = document.createElement("button");
-        let editIcon = document.createElement("span");
         let deleteIcon = document.createElement("span");
-        editIcon.classList.add("icon-cog");
+        let formElement = document.createElement("form");
+        function createLabel (className, textContent) {
+            let labelElement = document.createElement("label");
+            labelElement.classList.add("grid-item__label");
+            labelElement.classList.add(className);
+            labelElement.innerText = textContent + ": ";
+            formElement.appendChild(labelElement);
+        };
+        function createFormInput (className, classNameSpecific) {
+            let inputElement = document.createElement("input");
+            inputElement.classList.add("grid-item__input");
+            inputElement.classList.add(className);
+            newItem.childNodes.appendChild(inputElement);
+        };
         deleteIcon.classList.add("icon-cancel");
-        editButton.classList.add("grid-item__button");
-        editButton.classList.add("grid-item__button--edit");
         deleteButton.classList.add("grid-item__button");
         deleteButton.classList.add("grid-item__button--delete");
         newItem.classList.add("grid-item");
-        editButton.appendChild(editIcon);
+        formElement.classList.add("grid-item__options");
+        deleteButton.innerText = "Delete";
         deleteButton.appendChild(deleteIcon);
-        newItem.appendChild(editButton);
         newItem.appendChild(deleteButton);
         newItem.style.backgroundColor = getRandomBackground();
+        createLabel("grid-item__label--column-start", "grid-column-start");
+        createLabel("grid-item__label--column-end", "grid-column-end");
+        createLabel("grid-item__label--row-start", "grid-row-start");
+        createLabel("grid-item__label--row-end", "grid-row-end");
+        newItem.appendChild(formElement);
         newItem.addEventListener("click", (event) => {
             event.target.parentNode.remove();
         })
@@ -127,30 +141,45 @@
     for (let item of GRID_COLUMN_START) {
         item.addEventListener("change", (event) => {
             let gridOptionValue = event.target.value;
-            event.target.parentNode.parentNode.style.gridColumnStart = `${gridOptionValue}`;
+            event.target.parentNode.parentNode.parentNode.style.gridColumnStart = `${gridOptionValue}`;
         });
     }
 
     for (let item of GRID_COLUMN_END) {
         item.addEventListener("change", (event) => {
             let gridOptionValue = event.target.value;
-            event.target.parentNode.parentNode.style.gridColumnEnd = `${gridOptionValue}`;
+            event.target.parentNode.parentNode.parentNode.style.gridColumnEnd = `${gridOptionValue}`;
         });
     }
 
     for (let item of GRID_ROW_START) {
         item.addEventListener("change", (event) => {
             let gridOptionValue = event.target.value;
-            event.target.parentNode.parentNode.style.gridRowStart = `${gridOptionValue}`;
+            event.target.parentNode.parentNode.parentNode.style.gridRowStart = `${gridOptionValue}`;
         });
     }
 
     for (let item of GRID_ROW_END) {
         item.addEventListener("change", (event) => {
             let gridOptionValue = event.target.value;
-            event.target.parentNode.parentNode.style.gridRowEnd = `${gridOptionValue}`;
+            event.target.parentNode.parentNode.parentNode.style.gridRowEnd = `${gridOptionValue}`;
         });
     }
+
+    // Show the help modal
+
+    const HELP_BUTTON = document.getElementById("showHelp");
+    const HELP_MODAL = document.getElementById("helpModal");
+    const CLOSE_MODAL = document.getElementById("closeModal");
+    
+    
+    HELP_BUTTON.addEventListener("click", () => {
+        HELP_MODAL.classList.add("grid-options__help-box--visible");
+    })
+
+    CLOSE_MODAL.addEventListener("click", () => {
+        HELP_MODAL.classList.remove("grid-options__help-box--visible");
+    })
 
     /*
     // Show grid item options
