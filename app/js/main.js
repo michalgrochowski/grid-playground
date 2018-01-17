@@ -18,7 +18,7 @@
 
     function changeItemsBackground() {
         for (let item of GRID_ITEMS) {
-            item.style.background = getRandomBackground();
+            item.style.backgroundColor = getRandomBackground();
         }
     }
 
@@ -35,13 +35,30 @@
         OPTIONS_BOX.classList.toggle("grid-options--expanded");
     });
 
-    // Change gris properties using provided values from inputs
+    // Change grid properties using provided values from inputs
 
     const GRID = document.getElementById("grid");
+    const GRID_WIDTH = document.getElementById("gridWidth");
+    const GRID_HEIGHT = document.getElementById("gridHeight");
     const GRID_COLUMNS = document.getElementById("gridColumns");
     const GRID_ROWS = document.getElementById("gridRows");
 
-    NUMBER_OF_ITEMS.addEventListener("change", () => {
-        GRID.style.gridColumn = "1fr 1fr 1fr";
+    GRID_HEIGHT.addEventListener("change", () => {
+        GRID.style.height = GRID_HEIGHT.value;
     });
+
+    GRID_WIDTH.addEventListener("change", () => {
+        GRID.style.width = GRID_WIDTH.value;
+    });
+
+    GRID_COLUMNS.addEventListener("change", () => {
+        let columnsNumber = GRID_COLUMNS.value;
+        GRID.style.gridTemplateColumns = `repeat(${columnsNumber}, 1fr)`;
+    });
+
+    GRID_ROWS.addEventListener("change", () => {
+        let rowsNumber = GRID_ROWS.value;
+        GRID.style.gridTemplateRows = `repeat(${rowsNumber}, 1fr)`;
+    });
+
 })();
