@@ -79,7 +79,7 @@
         GRID.style.gridAutoFlow = `${autoFlow}`;
     });
 
-    // Add and remove grid items
+    // Add a new grid item
 
     const ADD_ITEM = document.getElementById("addGridItem");
 
@@ -101,7 +101,20 @@
         newItem.appendChild(editButton);
         newItem.appendChild(deleteButton);
         newItem.style.backgroundColor = getRandomBackground();
+        newItem.addEventListener("click", (event) => {
+            event.target.parentNode.remove();
+        })
         GRID.appendChild(newItem);
     });
+
+    // Remove selected grid item
+
+    const REMOVE_ITEM = document.getElementsByClassName("grid-item__button--delete");
+
+    for (let item of REMOVE_ITEM) {
+        item.addEventListener("click", (event) => {
+            event.target.parentNode.remove();
+        });
+    };
 
 })();
