@@ -19,6 +19,16 @@ body {
     color: #333;
 }
 
+.overflow-on {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.overflow-off {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
 
 // Main layout
 

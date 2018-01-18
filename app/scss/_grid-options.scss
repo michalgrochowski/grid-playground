@@ -34,7 +34,7 @@
 .grid-options__help-box {
     position: fixed;
     z-index: 20;
-    top: -100vh;
+    top: -200vh;
     left: 0;
     width: 100vw;
     min-height: 100vh;
@@ -47,13 +47,14 @@
 }
 
 .grid-options__article {
-    width: 80vw;
-    min-height: 80vh;
-    margin: 10vh 10vw;
+    width: 90vw;
+    max-height: 90vh;
+    margin: 5vh auto;
     background-color: rgba(255,255,255,0.9);
     @include flex-column;
-    padding: 0 3rem;
+    padding: 0 3rem 2rem 3rem;
     position: relative;
+    overflow-y: auto;
 }
 
 .grid-options__close-modal {
@@ -69,6 +70,7 @@
 
 .grid-options__title {
     font-size: 2rem;
+    text-align: center;
 }
 
 .grid-options__subtitle {
@@ -79,4 +81,15 @@
 .grid-options__paragraph {
     font-size: 1.4rem;
     margin: 0.3rem;  
+    &--last {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+}
+
+.grid-options__code {
+    display: inline;
+    font-size: 1.4rem;
+    margin: 0.3rem;  
+    background-color: rgb(210,210,210);
 }

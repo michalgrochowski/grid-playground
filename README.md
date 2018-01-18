@@ -7,9 +7,13 @@ Right now you can:
 - change the number of rows and column, 
 - change grid container width and height, 
 - change the column and row gap,
-- change grid-auot-flow.
+- change grid-auto-flow.
 
 But there will be more options in the next releases.
+
+If you need help, you can clikc the "Feeling Lost?" button which will open a modal box with all the basic grid properties used in this app.
+
+DICSLAIMER: There are no official definitions here - use MDN to see those.
 
 Made entirely with HTML, CSS (Sass) and ES6 JavaScript.
 

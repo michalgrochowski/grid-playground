@@ -9,6 +9,7 @@
     grid-auto-flow: dense;
     transition: 0.5s all;
     position: relative;
+    overflow-y: auto;
 }
 
 .grid-item {

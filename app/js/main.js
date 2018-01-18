@@ -7,6 +7,14 @@
         });
     }
 
+    // Turn off body overflow
+
+    function overflow() {
+        pageBody = document.getElementById("body");
+        pageBody.classList.toggle("overflow-on");
+        pageBody.classList.toggle("overflow-off");
+    }
+
     // Random color grid-items
 
     const GRID_ITEMS = document.getElementsByClassName("grid-item");
@@ -84,40 +92,12 @@
     const ADD_ITEM = document.getElementById("addGridItem");
 
     ADD_ITEM.addEventListener("click", () => {
-        let newItem = document.createElement("div");
-        let deleteButton = document.createElement("button");
-        let deleteIcon = document.createElement("span");
-        let formElement = document.createElement("form");
-        function createLabel (className, textContent) {
-            let labelElement = document.createElement("label");
-            labelElement.classList.add("grid-item__label");
-            labelElement.classList.add(className);
-            labelElement.innerText = textContent + ": ";
-            formElement.appendChild(labelElement);
-        };
-        function createFormInput (className, classNameSpecific) {
-            let inputElement = document.createElement("input");
-            inputElement.classList.add("grid-item__input");
-            inputElement.classList.add(className);
-            newItem.childNodes.appendChild(inputElement);
-        };
-        deleteIcon.classList.add("icon-cancel");
-        deleteButton.classList.add("grid-item__button");
-        deleteButton.classList.add("grid-item__button--delete");
-        newItem.classList.add("grid-item");
-        formElement.classList.add("grid-item__options");
-        deleteButton.innerText = "Delete";
-        deleteButton.appendChild(deleteIcon);
-        newItem.appendChild(deleteButton);
+        const GRID_ITEM_SPECIFIC = document.querySelector(".grid-item");
+        let newItem = GRID_ITEM_SPECIFIC.cloneNode(true);
         newItem.style.backgroundColor = getRandomBackground();
-        createLabel("grid-item__label--column-start", "grid-column-start");
-        createLabel("grid-item__label--column-end", "grid-column-end");
-        createLabel("grid-item__label--row-start", "grid-row-start");
-        createLabel("grid-item__label--row-end", "grid-row-end");
-        newItem.appendChild(formElement);
         newItem.addEventListener("click", (event) => {
             event.target.parentNode.remove();
-        })
+        });
         GRID.appendChild(newItem);
     });
 
@@ -133,10 +113,10 @@
 
     // Change grid item properties
 
-    const GRID_COLUMN_START = document.getElementsByClassName("gridColumnStart")
-    const GRID_COLUMN_END = document.getElementsByClassName("gridColumnEnd")
-    const GRID_ROW_START = document.getElementsByClassName("gridRowStart")
-    const GRID_ROW_END = document.getElementsByClassName("gridRowEnd")
+    const GRID_COLUMN_START = document.getElementsByClassName("gridColumnStart");
+    const GRID_COLUMN_END = document.getElementsByClassName("gridColumnEnd");
+    const GRID_ROW_START = document.getElementsByClassName("gridRowStart");
+    const GRID_ROW_END = document.getElementsByClassName("gridRowEnd");
 
     for (let item of GRID_COLUMN_START) {
         item.addEventListener("change", (event) => {
@@ -144,28 +124,28 @@
             event.target.parentNode.parentNode.parentNode.style.gridColumnStart = `${gridOptionValue}`;
         });
     }
-
+    
     for (let item of GRID_COLUMN_END) {
         item.addEventListener("change", (event) => {
             let gridOptionValue = event.target.value;
             event.target.parentNode.parentNode.parentNode.style.gridColumnEnd = `${gridOptionValue}`;
         });
     }
-
+    
     for (let item of GRID_ROW_START) {
         item.addEventListener("change", (event) => {
             let gridOptionValue = event.target.value;
             event.target.parentNode.parentNode.parentNode.style.gridRowStart = `${gridOptionValue}`;
         });
     }
-
+    
     for (let item of GRID_ROW_END) {
         item.addEventListener("change", (event) => {
             let gridOptionValue = event.target.value;
             event.target.parentNode.parentNode.parentNode.style.gridRowEnd = `${gridOptionValue}`;
         });
     }
-
+    
     // Show the help modal
 
     const HELP_BUTTON = document.getElementById("showHelp");
@@ -175,10 +155,12 @@
     
     HELP_BUTTON.addEventListener("click", () => {
         HELP_MODAL.classList.add("grid-options__help-box--visible");
+        overflow();
     })
 
     CLOSE_MODAL.addEventListener("click", () => {
         HELP_MODAL.classList.remove("grid-options__help-box--visible");
+        overflow();
     })
 
     /*
