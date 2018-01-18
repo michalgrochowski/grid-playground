@@ -15,7 +15,7 @@
         pageBody.classList.toggle("overflow-off");
     }
 
-    // Random color grid-items
+    // Random background-color of grid items
 
     const GRID_ITEMS = document.getElementsByClassName("grid-item");
 
@@ -104,7 +104,7 @@
         newForm.classList.add("grid-item__options");
         let newLabel = document.createElement("label");
         newLabel.classList.add("grid-item__label");
-        function createNewLabelAndInput(labelClass, inputClass, labelText, inputProperty) {
+        function createNewLabelAndInput(labelClass, inputClass, labelText) {
             let newLabel = document.createElement("label");
             newLabel.classList.add("grid-item__label");
             newLabel.classList.add(labelClass);
@@ -112,7 +112,7 @@
             newInput.classList.add("grid-item__input");
             newInput.classList.add(inputClass);
             newInput.setAttribute("type", "text");
-            newInput.addEventListener("change", function(inputProperty) {
+            newInput.addEventListener("change", function() {
                 let gridOptionValue = newInput.value;
                 if (newInput.classList.contains("gridColumnStart")) {
                     newInput.parentNode.parentNode.parentNode.style.gridColumnStart = `${gridOptionValue}`;
@@ -128,15 +128,13 @@
             newLabel.appendChild(newInput);
             return newLabel;
         }
-        /*const GRID_ITEM_SPECIFIC = document.querySelector(".grid-item");
-        let newItem = GRID_ITEM_SPECIFIC.cloneNode(true);*/
         newItem.style.backgroundColor = getRandomBackground();
         newDeleteButton.appendChild(newDeleteIcon);
         newItem.appendChild(newDeleteButton);
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-start", "gridColumnStart", "grid-column-start:", "gridColumnStart"));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-end", "gridColumnEnd", "grid-column-end:", "gridColumnEnd"));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-start", "gridRowStart", "grid-row-start:", "gridRowStart"));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-end", "gridRowEnd", "grid-row-end:", "gridRowEnd"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-start", "gridColumnStart", "grid-column-start:"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-end", "gridColumnEnd", "grid-column-end:"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-start", "gridRowStart", "grid-row-start:"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-end", "gridRowEnd", "grid-row-end:"));
         newItem.appendChild(newForm);
         newDeleteButton.addEventListener("click", () => {
             newDeleteButton.parentNode.remove();
@@ -195,7 +193,6 @@
     const HELP_MODAL = document.getElementById("helpModal");
     const CLOSE_MODAL = document.getElementById("closeModal");
     
-    
     HELP_BUTTON.addEventListener("click", () => {
         HELP_MODAL.classList.add("grid-options__help-box--visible");
         overflow();
@@ -206,33 +203,4 @@
         overflow();
     })
 
-    /*
-    // Show grid item options
-
-    const ITEM__OPTIONS = document.getElementsByClassName("grid-item__button--edit");
-
-    for (let item of ITEM__OPTIONS) {
-        item.addEventListener("click", (event) => {
-            let formElement = event.target.nextElementSibling;
-            formElement.classList.add("grid-item__options--expanded");
-        });
-    };
-    */
-
-    /*
-    // Close grid item options
-
-    const ITEM__OPTIONS_CLOSE = document.getElementsByClassName("grid-item__button--cancel-inner");
-    
-    for (let item of ITEM__OPTIONS_CLOSE) {
-        item.addEventListener("click", (event) => {
-            e.preventDefault();
-            e.stopPropagation();
-            let formElement = event.target.parentNode;
-            formElement.classList.remove("grid-item__options--expanded");
-            console.log(formElement);
-        });
-    };
-    */
-    
 })();

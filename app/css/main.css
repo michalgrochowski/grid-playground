@@ -299,7 +299,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   padding-bottom: 3rem;
-  margin-top: 5rem; }
+  margin-top: 6rem; }
 
 .bonus-materials__title {
   -ms-flex-preferred-size: 100%;
@@ -418,6 +418,8 @@ body {
   @media screen and (max-width: 1200px) {
     .section {
       width: 100%; } }
+  .section--main {
+    min-height: 150vh; }
 
 .section__title {
   -ms-flex-preferred-size: 100%;
