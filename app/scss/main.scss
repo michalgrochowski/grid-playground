@@ -29,6 +29,11 @@ body {
     overflow-y: hidden;
 }
 
+.github-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+}
 
 // Main layout
 
@@ -40,10 +45,21 @@ body {
     color: #333333;
     margin-top: 5rem;
     margin-bottom: 0;
+    @include mq-max(800px) {
+        margin: 1rem 1rem 2rem 1rem;
+        font-size: 2.5rem;
+    }
 }
 
 .container__subtitle {
     margin: 0;
+    font-size: 1.6rem;
+    @include mq-max(800px) {
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+        padding: 0 1rem;
+        text-align: center;
+    }
 }
 
 .section {

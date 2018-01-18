@@ -1,7 +1,10 @@
 .options-form {
-    margin: 6rem auto 0 auto;
+    margin: 0rem auto 0 auto;
     width: 50%;
     padding: 1rem 2.5%;
+    @include mq-max(800px) {
+        width: 90%;
+    }
 }
 
 .options-form__fieldset {
@@ -33,6 +36,9 @@
     border-radius: 1rem;
     padding: 0.5rem 0.5rem;
     border: 1px solid black;
+    @include mq-max(800px) {
+        width: 90%;
+    }
 }
 
 .options-form__select {

@@ -1,15 +1,14 @@
 .grid-container {
     display: grid;
-    width: 960px;
-    height: 960px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    width: 90%;
+    height: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-auto-flow: dense;
     transition: 0.5s all;
     position: relative;
-    overflow-y: auto;
 }
 
 .grid-item {
@@ -30,49 +29,14 @@
         opacity: 1;
         transition: 0.3s all;
     }
-    &--edit {
-        top: 1.5rem;
-        left: 0.5rem;
-    }
     &--delete {
         top: 1.5rem;
         right: 0.5rem;
     }
-    &--add, &--help {
-        top: 1rem;
-        border: 1px solid black;
-        width: 15rem;
-        height: 3rem;
-        border-radius: 1.5rem;
-        top: 1rem;
-        &:hover, &:focus {
-            transition: 0.3s all;
-            background-color: #333333;
-            color: #ffffff;
-        }
-    }
-    &--add {
-        left: 0;
-        padding: 0 2rem 0 0;
-    }
-    &--help {
-        right: 0;
-        padding: 0 1rem 0 0;
-    }
-    &--accept {
-        font-size: 2rem;
-        bottom: 1rem;
-        left: 25%;
-    }
-    &--cancel-inner {
-        font-size: 2rem;
-        bottom: 1rem;
-        right: 25%;
-    }
 }
 
 .grid-item__options {
-    margin-top: 3rem;
+    padding: 1rem;
 }
 
 .grid-item__label {

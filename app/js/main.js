@@ -92,11 +92,54 @@
     const ADD_ITEM = document.getElementById("addGridItem");
 
     ADD_ITEM.addEventListener("click", () => {
-        const GRID_ITEM_SPECIFIC = document.querySelector(".grid-item");
-        let newItem = GRID_ITEM_SPECIFIC.cloneNode(true);
+        let newItem = document.createElement("div");
+        newItem.classList.add("grid-item");
+        let newDeleteButton = document.createElement("button");
+        newDeleteButton.classList.add("grid-item__button");
+        newDeleteButton.classList.add("grid-item__button--delete");
+        newDeleteButton.textContent = "Delete ";
+        let newDeleteIcon = document.createElement("span");
+        newDeleteIcon.classList.add("icon-cancel");
+        let newForm = document.createElement("form");
+        newForm.classList.add("grid-item__options");
+        let newLabel = document.createElement("label");
+        newLabel.classList.add("grid-item__label");
+        function createNewLabelAndInput(labelClass, inputClass, labelText, inputProperty) {
+            let newLabel = document.createElement("label");
+            newLabel.classList.add("grid-item__label");
+            newLabel.classList.add(labelClass);
+            let newInput = document.createElement("input");
+            newInput.classList.add("grid-item__input");
+            newInput.classList.add(inputClass);
+            newInput.setAttribute("type", "text");
+            newInput.addEventListener("change", function(inputProperty) {
+                let gridOptionValue = newInput.value;
+                if (newInput.classList.contains("gridColumnStart")) {
+                    newInput.parentNode.parentNode.parentNode.style.gridColumnStart = `${gridOptionValue}`;
+                } else if (newInput.classList.contains("gridColumnEnd")) {
+                    newInput.parentNode.parentNode.parentNode.style.gridColumnEnd = `${gridOptionValue}`;
+                } else if (newInput.classList.contains("gridRowStart")) {
+                    newInput.parentNode.parentNode.parentNode.style.gridRowStart = `${gridOptionValue}`;
+                } else if (newInput.classList.contains("gridRowEnd")) {
+                    newInput.parentNode.parentNode.parentNode.style.gridRowEnd = `${gridOptionValue}`;
+                };
+            })
+            newLabel.textContent = labelText;
+            newLabel.appendChild(newInput);
+            return newLabel;
+        }
+        /*const GRID_ITEM_SPECIFIC = document.querySelector(".grid-item");
+        let newItem = GRID_ITEM_SPECIFIC.cloneNode(true);*/
         newItem.style.backgroundColor = getRandomBackground();
-        newItem.addEventListener("click", (event) => {
-            event.target.parentNode.remove();
+        newDeleteButton.appendChild(newDeleteIcon);
+        newItem.appendChild(newDeleteButton);
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-start", "gridColumnStart", "grid-column-start:", "gridColumnStart"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-end", "gridColumnEnd", "grid-column-end:", "gridColumnEnd"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-start", "gridRowStart", "grid-row-start:", "gridRowStart"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-end", "gridRowEnd", "grid-row-end:", "gridRowEnd"));
+        newItem.appendChild(newForm);
+        newDeleteButton.addEventListener("click", () => {
+            newDeleteButton.parentNode.remove();
         });
         GRID.appendChild(newItem);
     });

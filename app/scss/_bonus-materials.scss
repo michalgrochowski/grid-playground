@@ -1,6 +1,7 @@
 .bonus-materials {
     @include flex-center-column;
     padding-bottom: 3rem;
+    margin-top: 5rem;
 }
 
 .bonus-materials__title {
@@ -10,9 +11,21 @@
 
 .bonus-materials__description {
     margin-top: 0;
+    @include mq-max(800px) {
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+        padding: 0 1rem;
+        text-align: center;
+    }
 }
 
 .bonus-materials__link {
     display: block;
     color: #333333;
+    @include mq-max(800px) {
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+        padding: 0 1rem;
+        text-align: center;
+    }
 }

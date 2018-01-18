@@ -1,7 +1,11 @@
 .social-nav {
     position: fixed;
     top: 0;
-    right: 1rem;
+    right: 0;
+    z-index: 10;
+    @include mq-max(800px) {
+        position: static;
+    }
 }
 
 .social-nav__list {

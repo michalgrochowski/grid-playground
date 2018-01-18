@@ -65,43 +65,46 @@
 		<p class="container__subtitle">Play with the grid options below and see how the layout changes.</p>
 		<p class="container__subtitle">You can also add, edit or remove items from the grid.</p>
 		<p class="container__subtitle">Just put a desired value in the input box and click anywhere to see how it changes the grid.</p>
+		<p class="container__subtitle">Although it is fully responsive, I would recommend using it only on desktop - it may easily get too cluttered on mobile.</p>
 		<section id="" class="section">  
 			<h2 class="section__title">Here is your grid:</h2>
-			<div id="options-box" class="grid-options">
-				<button id="addGridItem" class="grid-item__button grid-item__button--add"><span class="icon-plus"></span> Add item</button>
+			<div id="helpModal" class="grid-options__help-box">
+				<article class="grid-options__article">
+					<button id="closeModal" class="grid-options__close-modal">Close <span class="icon-cancel"></span></button>
+					<h3 class="grid-options__title">Here are the basic CSS Grid properties used in this app:</h3>
+					<p class="grid-options__subtitle">Grid options:</p>
+					<p class="grid-options__paragraph"><strong>width and height</strong> - pretty self explanatory, it's height and width of the grid container.</p>
+					<p class="grid-options__paragraph"><strong>columns and rows</strong> - full property names are <code class="grid-options__code">"grid-template-columns"</code> and <code class="grid-options__code">"grid-template-rows"</code>. They specify how many columns and rows the grid will have. You can put there any value in px, %, rem, em, vh, vw or fr. Shorthand property is <code class="grid-options__code">"grid-template"</code>. Here we are using evenly sized columns and rows with <code class="grid-options__code">"repeat(number of columns/rows, size of column/row)"</code> option, but in your own grid you can use named areas or different values for each column/row, for example: <br>
+					<code class="grid-options__code">"grid-template-columns: [first] 40px 1fr 20% [last];".</code><br></p>
+					<p class="grid-options__paragraph"><strong>column gap and row gap</strong> - full property names are <code class="grid-options__code">"grid-column-gap"</code> and <code class="grid-options__code">"grid-row-gap"</code>. They specify the size of the gutters between columns and rows. You can put there any value in px, %, rem, em, vh, vw or fr. Shorthand property is <code class="grid-options__code">"grid-gap"</code>.</p>
+					<p class="grid-options__paragraph"><strong>grid-auto-flow</strong> - Grid has preety great auto-placement algorithm, and <code class="grid-options__code">"grid-auto-flow"</code> property defines how should it act. If you set it to <code class="grid-options__code">"column"</code> it will place new grid items in available columns or create a new one and place it there. If you set it to <code class="grid-options__code">"row"</code> will place new grid items in available rows or create a new one and place it there. Last option, <code class="grid-options__code">"dense"</code>, will try to fit any new items in available spots, also changing the order of grid items, so be careful with that.</p>
+					<p class="grid-options__subtitle">Grid item options:</p>
+					<p class="grid-options__paragraph"><strong>grid-column-start</strong> - specifies in which column the item will start. Given number refers to the start of the column. Only integers are allowed.</p>
+					<p class="grid-options__paragraph"><strong>grid-column-end</strong> - specifies in which column the item will end. Given number refers to the start of the column, so for example if you want an item to span over columns 1-4, you have to put 5 in there. Only integers are allowed.</p>
+					<p class="grid-options__paragraph"><strong>grid-row-start</strong> - specifies in which row the item will start. Given number refers to the start of the row. Only integers are allowed.</p>
+					<p class="grid-options__paragraph"><strong>grid-row-end</strong> - specifies in which row the item will end. Only integers are allowed. Given number refers to the start of the row, so for example if you want an item to span over rows 1-3, you have to put 4 in there.</p>
+					<p class="grid-options__subtitle">Other options:</p>
+					<p class="grid-options__paragraph">CSS Grid offers a lot of more options than shown in this playground. Options like <code class="grid-options__code">"align-items"</code>, <code class="grid-options__code">"justify-items"</code>, <code class="grid-options__code">"align-content"</code> and <code class="grid-options__code">"justify-content"</code> works pretty much the same as in Flexbox, so if you know that you should also be able to use it in your grid. There is also the <code class="grid-options__code">"grid"</code> property, in which you specify all of the above. If you ask me, it makes the code a lot less readable, but feel free to use it.</p>
+					<p class="grid-options__paragraph grid-options__paragraph--last">Grid items also have some more properties, like <code class="grid-options__code">"grid-area"</code> in which you tell the item which named areas of your grid should it take, and of course <code class="grid-options__code">"align-self"</code> and <code class="grid-options__code">"justify-self"</code>. You can also use short-hand properties <code class="grid-options__code">"grid-column"</code> and <code class="grid-options__code">"grid-row"</code> to specify both the start and the end of your item.</p>
+				</article>
+			</div>
+			<div class="grid-options__controls">
+				<button id="addGridItem" class="grid-options__button grid-options__button--add"><span class="icon-plus"></span> Add item</button>
 				<button id="optionsButton" class="grid-options__button"><span class="icon-cog"></span> Grid options</button>
-				<button id="showHelp" class="grid-item__button grid-item__button--help"><span class="icon-help-circled"></span> Feeling lost?</button>
-				<div id="helpModal" class="grid-options__help-box">
-					<article class="grid-options__article">
-						<button id="closeModal" class="grid-options__close-modal">Close <span class="icon-cancel"></span></button>
-						<h3 class="grid-options__title">Here are the basic CSS Grid properties used in this app:</h3>
-						<p class="grid-options__subtitle">Grid options:</p>
-						<p class="grid-options__paragraph"><strong>width and height</strong> - pretty self explanatory, it's height and width of the grid container.</p>
-						<p class="grid-options__paragraph"><strong>columns and rows</strong> - full property names are <code class="grid-options__code">"grid-template-columns"</code> and <code class="grid-options__code">"grid-template-rows"</code>. They specify how many columns and rows the grid will have. You can put there any value in px, %, rem, em, vh, vw or fr. Shorthand property is <code class="grid-options__code">"grid-template"</code>. Here we are using evenly sized columns and rows with <code class="grid-options__code">"repeat(number of columns/rows, size of column/row)"</code> option, but in your own grid you can use named areas or different values for each column/row, for example: <br>
-						<code class="grid-options__code">"grid-template-columns: [first] 40px 1fr 20% [last];".</code><br></p>
-						<p class="grid-options__paragraph"><strong>column gap and row gap</strong> - full property names are <code class="grid-options__code">"grid-column-gap"</code> and <code class="grid-options__code">"grid-row-gap"</code>. They specify the size of the gutters between columns and rows. You can put there any value in px, %, rem, em, vh, vw or fr. Shorthand property is <code class="grid-options__code">"grid-gap"</code>.</p>
-						<p class="grid-options__paragraph"><strong>grid-auto-flow</strong> - Grid has preety great auto-placement algorithm, and <code class="grid-options__code">"grid-auto-flow"</code> property defines how should it act. If you set it to <code class="grid-options__code">"column"</code> it will place new grid items in available columns or create a new one and place it there. If you set it to <code class="grid-options__code">"row"</code> will place new grid items in available rows or create a new one and place it there. Last option, <code class="grid-options__code">"dense"</code>, will try to fit any new items in available spots, also changing the order of grid items, so be careful with that.</p>
-						<p class="grid-options__subtitle">Grid item options:</p>
-						<p class="grid-options__paragraph"><strong>grid-column-start</strong> - specifies in which column the item will start. Given number refers to the start of the column. Only integers are allowed.</p>
-						<p class="grid-options__paragraph"><strong>grid-column-end</strong> - specifies in which column the item will end. Given number refers to the start of the column, so for example if you want an item to span over columns 1-4, you have to put 5 in there. Only integers are allowed.</p>
-						<p class="grid-options__paragraph"><strong>grid-row-start</strong> - specifies in which row the item will start. Given number refers to the start of the row. Only integers are allowed.</p>
-						<p class="grid-options__paragraph"><strong>grid-row-end</strong> - specifies in which row the item will end. Only integers are allowed. Given number refers to the start of the row, so for example if you want an item to span over rows 1-3, you have to put 4 in there.</p>
-						<p class="grid-options__subtitle">Other options:</p>
-						<p class="grid-options__paragraph">CSS Grid offers a lot of more options than shown in this playground. Options like <code class="grid-options__code">"align-items"</code>, <code class="grid-options__code">"justify-items"</code>, <code class="grid-options__code">"align-content"</code> and <code class="grid-options__code">"justify-content"</code> works pretty much the same as in Flexbox, so if you know that you should also be able to use it in your grid. There is also the <code class="grid-options__code">"grid"</code> property, in which you specify all of the above. If you ask me, it makes the code a lot less readable, but feel free to use it.</p>
-						<p class="grid-options__paragraph grid-options__paragraph--last">Grid items also have some more properties, like <code class="grid-options__code">"grid-area"</code> in which you tell the item which named areas of your grid should it take, and of course <code class="grid-options__code">"align-self"</code> and <code class="grid-options__code">"justify-self"</code>. You can also use short-hand properties <code class="grid-options__code">"grid-column"</code> and <code class="grid-options__code">"grid-row"</code> to specify both the start and the end of your item.</p>
-					</article>
-				</div>
+				<button id="showHelp" class="grid-options__button grid-options__button--help"><span class="icon-help-circled"></span> Need help?</button>
+			</div>
+			<div id="options-box" class="grid-options">
 				<form class="options-form">
 					<fieldset class="options-form__fieldset">
 						<legend class="options-form__legend">Grid options:</legend>
 						<label class="options-form__label" for="gridWidth">width (px, rem, vh vw or %):</label>
-						<input id="gridWidth" class="options-form__input" type="text" value="960px">
+						<input id="gridWidth" class="options-form__input" type="text" value="90%">
 						<label class="options-form__label" for="gridHeight">height (px, rem, vh vw or %):</label>
-						<input id="gridHeight" class="options-form__input" type="text" value="960px">
+						<input id="gridHeight" class="options-form__input" type="text" value="90%">
 						<label class="options-form__label" for="gridColumns">columns (number):</label>
-						<input id="gridColumns" class="options-form__input" type="text" value="3">
+						<input id="gridColumns" class="options-form__input" type="text" value="2">
 						<label class="options-form__label" for="gridRows">rows (number):</label>
-						<input id="gridRows" class="options-form__input" type="text" value="4">
+						<input id="gridRows" class="options-form__input" type="text" value="3">
 						<label class="options-form__label" for="gridColumnGap">column gap (px, rem, vh vw or %):</label>
 						<input id="gridColumnGap" class="options-form__input" type="text" value="10px">
 						<label class="options-form__label" for="gridRowGap">row gap (px, rem, vh, vw or %):</label>
@@ -116,76 +119,6 @@
 				</form>
 			</div>
 			<div id="grid" class="grid-container">
-				
-				<div class="grid-item">
-					<button class="grid-item__button grid-item__button--delete">
-						Delete <span class="icon-cancel"></span>
-					</button>
-					<form class="grid-item__options">
-						<label class="grid-item__label grid-item__label--column-start">
-							grid-column-start:
-							<input class="grid-item__input gridColumnStart" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--column-end">
-							grid-column-end:
-							<input class="grid-item__input gridColumnEnd" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--row-start">
-							grid-row-start:
-							<input class="grid-item__input gridRowStart" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--row-end">
-							grid-row-end:
-							<input class="grid-item__input gridRowEnd" type="text">
-						</label>
-					</form>
-				</div>
-				<div class="grid-item">
-					<button class="grid-item__button grid-item__button--delete">
-						Delete <span class="icon-cancel"></span>
-					</button>
-					<form class="grid-item__options">
-						<label class="grid-item__label grid-item__label--column-start">
-							grid-column-start:
-							<input class="grid-item__input gridColumnStart" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--column-end">
-							grid-column-end:
-							<input class="grid-item__input gridColumnEnd" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--row-start">
-							grid-row-start:
-							<input class="grid-item__input gridRowStart" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--row-end">
-							grid-row-end:
-							<input class="grid-item__input gridRowEnd" type="text">
-						</label>
-					</form>
-				</div>
-				<div class="grid-item">
-					<button class="grid-item__button grid-item__button--delete">
-						Delete <span class="icon-cancel"></span>
-					</button>
-					<form class="grid-item__options">
-						<label class="grid-item__label grid-item__label--column-start">
-							grid-column-start:
-							<input class="grid-item__input gridColumnStart" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--column-end">
-							grid-column-end:
-							<input class="grid-item__input gridColumnEnd" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--row-start">
-							grid-row-start:
-							<input class="grid-item__input gridRowStart" type="text">
-						</label>
-						<label class="grid-item__label grid-item__label--row-end">
-							grid-row-end:
-							<input class="grid-item__input gridRowEnd" type="text">
-						</label>
-					</form>
-				</div>
 				<div class="grid-item">
 					<button class="grid-item__button grid-item__button--delete">
 						Delete <span class="icon-cancel"></span>
