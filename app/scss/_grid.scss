@@ -7,6 +7,7 @@
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-auto-flow: dense;
+    align-items: stretch;
     transition: 0.5s all;
     position: relative;
     @include mq-max(800px) {
@@ -20,6 +21,8 @@
 .grid-item {
     transition: 0.5s all;
     position: relative;
+    overflow: auto;
+    box-sizing: padding-box;
 }
 
 .grid-item__button {

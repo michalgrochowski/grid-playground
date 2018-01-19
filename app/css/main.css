@@ -49,6 +49,9 @@
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   grid-auto-flow: dense;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
   position: relative; }
@@ -62,7 +65,10 @@
 .grid-item {
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
-  position: relative; }
+  position: relative;
+  overflow: auto;
+  -webkit-box-sizing: padding-box;
+  box-sizing: padding-box; }
 
 .grid-item__button {
   cursor: pointer;
@@ -123,7 +129,7 @@
   -ms-flex-direction: column;
   flex-direction: column; }
   .grid-options--expanded {
-    height: 550px;
+    height: 700px;
     -webkit-transition: 0.5s all;
     transition: 0.5s all; }
 

@@ -6,7 +6,7 @@
     overflow: hidden;
     @include flex-column;
     &--expanded {
-        height: 550px;
+        height: 700px;
         transition: 0.5s all;
     }
 }

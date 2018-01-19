@@ -66,6 +66,25 @@
         }
     }
 
+    // Change standard inputs value on mobile
+    function changeGridValuesInInputs() {
+        if (window.matchMedia("max-width: 800px")) {
+            GRID_COLUMNS.setAttribute("value", "2");
+            GRID_ROWS.setAttribute("value", "3");
+            COLUMN_GAP.setAttribute("value", "5px");
+            ROW_GAP.setAttribute("value", "5px");
+        } else if (window.matchMedia("min-width: 801px")) {
+            GRID_COLUMNS.setAttribute("value", "3");
+            GRID_ROWS.setAttribute("value", "3");
+            COLUMN_GAP.setAttribute("value", "10px");
+            ROW_GAP.setAttribute("value", "10px");
+        }
+    }
+
+    window.addEventListener("resize", () => {
+        changeGridValuesInInputs();
+    })
+
     document.addEventListener("DOMContentLoaded", () => {
         changeItemsBackground();
         changeGridValuesInInputs();
@@ -87,6 +106,8 @@
     const GRID_HEIGHT = document.getElementById("gridHeight");
     const GRID_COLUMNS = document.getElementById("gridColumns");
     const GRID_ROWS = document.getElementById("gridRows");
+    const GRID_COLUMN_SIZE = document.getElementById("gridColumnSize");
+    const GRID_ROW_SIZE = document.getElementById("gridRowSize");
     const COLUMN_GAP = document.getElementById("gridColumnGap");
     const ROW_GAP = document.getElementById("gridRowGap");
     const AUTOFLOW = document.getElementById("gridAutoFlow");
@@ -101,13 +122,27 @@
 
     GRID_COLUMNS.addEventListener("change", () => {
         let columnsNumber = GRID_COLUMNS.value;
-        GRID.style.gridTemplateColumns = `repeat(${columnsNumber}, 1fr)`;
+        let columnsSize = GRID_COLUMN_SIZE.value;
+        GRID.style.gridTemplateColumns = `repeat(${columnsNumber},${columnsSize})`;
     });
 
     GRID_ROWS.addEventListener("change", () => {
         let rowsNumber = GRID_ROWS.value;
-        GRID.style.gridTemplateRows = `repeat(${rowsNumber}, 1fr)`;
+        let rowsSize = GRID_ROW_SIZE.value;
+        GRID.style.gridTemplateRows = `repeat(${rowsNumber}, ${rowsSize})`;
     });
+
+    GRID_COLUMN_SIZE.addEventListener("change", () => {
+        let columnsNumber = GRID_COLUMNS.value;
+        let columnsSize = GRID_COLUMN_SIZE.value;
+        GRID.style.gridTemplateColumns = `repeat(${columnsNumber},${columnsSize})`;
+    })
+
+    GRID_ROW_SIZE.addEventListener("change", () => {
+        let rowsNumber = GRID_ROWS.value;
+        let rowsSize = GRID_ROW_SIZE.value;
+        GRID.style.gridTemplateRows = `repeat(${rowsNumber}, ${rowsSize})`;
+    })
 
     COLUMN_GAP.addEventListener("change", () => {
         let columnGap = COLUMN_GAP.value;
@@ -177,7 +212,6 @@
             newDeleteButton.parentNode.remove();
         });
         GRID.appendChild(newItem);
-        changeItemsBackground();
     });
 
     // Remove selected grid item
@@ -239,25 +273,6 @@
     CLOSE_MODAL.addEventListener("click", () => {
         HELP_MODAL.classList.remove("grid-options__help-box--visible");
         overflow();
-    })
-
-    // Change standard inputs value on mobile
-    function changeGridValuesInInputs() {
-        if (window.matchMedia("max-width: 800px")) {
-            GRID_COLUMNS.setAttribute("value", "2");
-            GRID_ROWS.setAttribute("value", "3");
-            COLUMN_GAP.setAttribute("value", "5px");
-            ROW_GAP.setAttribute("value", "5px");
-        } else if (window.matchMedia("min-width: 801px")) {
-            GRID_COLUMNS.setAttribute("value", "3");
-            GRID_ROWS.setAttribute("value", "3");
-            COLUMN_GAP.setAttribute("value", "10px");
-            ROW_GAP.setAttribute("value", "10px");
-        }
-    }
-
-    window.addEventListener("resize", () => {
-        changeGridValuesInInputs();
     })
 
 })();

@@ -23,6 +23,10 @@ Cool features:
 - There are some cool links at the bottom if you want to really master Grid,
 - Maybe it's not perfect, but it works!
 
+TODO:
+
+- Newly added items doesn't change labels font color - couldn't get it right just yet, but I'll try to make it work.
+
 Made entirely with HTML, CSS (Sass) and ES6 JavaScript.
 
 Live - https://michalgrochowski.github.io/grid-playground/dist
