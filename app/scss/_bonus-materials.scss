@@ -2,6 +2,9 @@
     @include flex-center-column;
     padding-bottom: 3rem;
     margin-top: 6rem;
+    @include mq-max(800px) {
+        margin-top: 16rem;
+    }
 }
 
 .bonus-materials__title {

@@ -24,14 +24,51 @@
         return "#" + ("000000" + hex.toString(16)).substr(-6);
     }
 
+    function changeRgbToObject(colorString) {
+        const rgbKeys = ['r', 'g', 'b'];
+        let rgbObj = {};
+        let color = colorString.replace(/^rgb?\(|\s+|\)$/g,'').split(',');
+        for (let i in rgbKeys)
+            rgbObj[rgbKeys[i]] = color[i] || 1;
+        return rgbObj;
+    }
+
+    function changeFontColor(bgColor) {
+        let colorObject = changeRgbToObject(bgColor)
+        rInteger = parseInt(colorObject.r);
+        gInteger = parseInt(colorObject.g);
+        bInteger = parseInt(colorObject.b);
+        function brightness() {
+            rValue = rInteger * rInteger * 0.299;
+            gValue = gInteger * gInteger * 0.587;
+            bValue = bInteger * bInteger * 0.114;
+            let sum = Math.sqrt(rValue + gValue + bValue);
+            return Math.trunc(sum);
+        }
+        if (brightness() < 100) {
+            return "rgb(255,255,255)";
+        } else if (brightness() >= 100) {
+            return "rgb(0,0,0);"
+        }
+    }
+
     function changeItemsBackground() {
         for (let item of GRID_ITEMS) {
             item.style.backgroundColor = getRandomBackground();
+        }
+        let itemLabel = document.getElementsByClassName("grid-item__label");
+        for (let item of itemLabel) {
+            item.style.color = changeFontColor(item.parentNode.parentNode.style.backgroundColor);
+        }
+        let deleteButton = document.getElementsByClassName("grid-item__button--delete");
+        for (let item of deleteButton) {
+            item.style.color = changeFontColor(item.parentNode.style.backgroundColor);
         }
     }
 
     document.addEventListener("DOMContentLoaded", () => {
         changeItemsBackground();
+        changeGridValuesInInputs();
     });
 
     // Expand grid options menu
@@ -104,7 +141,7 @@
         newForm.classList.add("grid-item__options");
         let newLabel = document.createElement("label");
         newLabel.classList.add("grid-item__label");
-        function createNewLabelAndInput(labelClass, inputClass, labelText) {
+        function createNewLabelAndInput(labelClass, inputClass, labelText, newBackground) {
             let newLabel = document.createElement("label");
             newLabel.classList.add("grid-item__label");
             newLabel.classList.add(labelClass);
@@ -128,18 +165,19 @@
             newLabel.appendChild(newInput);
             return newLabel;
         }
-        newItem.style.backgroundColor = getRandomBackground();
         newDeleteButton.appendChild(newDeleteIcon);
         newItem.appendChild(newDeleteButton);
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-start", "gridColumnStart", "grid-column-start:"));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-end", "gridColumnEnd", "grid-column-end:"));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-start", "gridRowStart", "grid-row-start:"));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-end", "gridRowEnd", "grid-row-end:"));
+        newItem.style.backgroundColor = getRandomBackground();
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-start", "gridColumnStart", "grid-column-start:", newItem.style.backgroundColor));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-end", "gridColumnEnd", "grid-column-end:", newItem.style.backgroundColor));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-start", "gridRowStart", "grid-row-start:", newItem.style.backgroundColor));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-end", "gridRowEnd", "grid-row-end:", newItem.style.backgroundColor));
         newItem.appendChild(newForm);
         newDeleteButton.addEventListener("click", () => {
             newDeleteButton.parentNode.remove();
         });
         GRID.appendChild(newItem);
+        changeItemsBackground();
     });
 
     // Remove selected grid item
@@ -201,6 +239,25 @@
     CLOSE_MODAL.addEventListener("click", () => {
         HELP_MODAL.classList.remove("grid-options__help-box--visible");
         overflow();
+    })
+
+    // Change standard inputs value on mobile
+    function changeGridValuesInInputs() {
+        if (window.matchMedia("max-width: 800px")) {
+            GRID_COLUMNS.setAttribute("value", "2");
+            GRID_ROWS.setAttribute("value", "3");
+            COLUMN_GAP.setAttribute("value", "5px");
+            ROW_GAP.setAttribute("value", "5px");
+        } else if (window.matchMedia("min-width: 801px")) {
+            GRID_COLUMNS.setAttribute("value", "3");
+            GRID_ROWS.setAttribute("value", "3");
+            COLUMN_GAP.setAttribute("value", "10px");
+            ROW_GAP.setAttribute("value", "10px");
+        }
+    }
+
+    window.addEventListener("resize", () => {
+        changeGridValuesInInputs();
     })
 
 })();

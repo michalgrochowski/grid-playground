@@ -2,13 +2,19 @@
     display: grid;
     width: 90%;
     height: 90%;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-auto-flow: dense;
     transition: 0.5s all;
     position: relative;
+    @include mq-max(800px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+    }
 }
 
 .grid-item {
@@ -36,7 +42,10 @@
 }
 
 .grid-item__options {
-    padding: 1rem;
+    padding: 3rem 1rem 1rem 1rem;
+    @include mq-max(800px) {
+        padding-top: 4rem;
+    }
 }
 
 .grid-item__label {
@@ -56,4 +65,7 @@
     margin: 0 auto;
     border-radius: 1.5rem;
     border: 1px solid #000000;
+    @include mq-max(800px) {
+        width: 80%;
+    }
 }

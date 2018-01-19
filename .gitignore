@@ -49,9 +49,6 @@ Temporary Items
 # Node Modules
 node_modules/
 
-# Finished (dist) code
-dist/
-
 # Form files
 formularz.php
 phpmailer/
