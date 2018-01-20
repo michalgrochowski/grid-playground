@@ -1,4 +1,6 @@
 (function(){
+    // Service worker registeration
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('serviceworker.js')
         .then(function(registration) {
@@ -8,8 +10,6 @@
             console.log('Service worker registration failed, error:', error);
         });
     }
-
-    // Edge polyfill for "for ... of" iteration
 
     // Turn off body overflow
 

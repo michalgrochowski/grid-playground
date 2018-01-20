@@ -1,7 +1,8 @@
 {
     "name": "CSS Grid Playground",
-    "start_url": "/index.html",
     "short_name": "CSS Grid",
+    "description": "Simple app that lets you play with CSS Grid.",
+    "start_url": "/index.html",
     "icons": [
         {
             "src": "https://michalgrochowski.github.io/grid-playground/dist/android-chrome-36x36.png",

@@ -12,7 +12,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
 const babel = require('gulp-babel');
 const babelCore = require('gulp-core');
-const babelPreset2015 = require('babel-preset-es2015');
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
@@ -141,5 +140,5 @@ gulp.task('default', () =>
 );
 
 gulp.task('build', () =>
-    sequence('clean:dist', ['sass', 'useref', 'babel', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'minify', 'cssmin')
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'babel', 'minify', 'cssmin')
 );
