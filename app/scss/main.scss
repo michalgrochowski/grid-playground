@@ -72,9 +72,6 @@ body {
     @include mq-max(1200px) {
         width: 100%;
     }
-    &--main {
-        min-height: 150vh;
-    }
 }
 
 .section__title {

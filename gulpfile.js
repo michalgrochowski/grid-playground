@@ -12,6 +12,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
 const babel = require('gulp-babel');
 const babelCore = require('gulp-core');
+const babelPreset2015 = require('babel-preset-es2015');
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
@@ -49,7 +50,7 @@ gulp.task('useref', () =>
 gulp.task('babel', () =>
     gulp.src('dist/js/main.min.js')
         .pipe(babel({
-            presets: ['env']
+            presets: ['es2015']
         }))
         .pipe(gulp.dest('dist/js'))
 );

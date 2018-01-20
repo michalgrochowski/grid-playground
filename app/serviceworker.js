@@ -8,7 +8,7 @@ const URLS_TO_CACHE  = [
     "https://michalgrochowski.github.io/grid-playground/dist/js/main.min.js",
     "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.eot",
     "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.svg",
-    "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.tff",
+    "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.ttf",
     "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.woff",
     "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.woff2",
     "https://michalgrochowski.github.io/grid-playground/dist/android-chrome-36x36.png",

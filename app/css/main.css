@@ -444,8 +444,6 @@ body {
   @media screen and (max-width: 1200px) {
     .section {
       width: 100%; } }
-  .section--main {
-    min-height: 150vh; }
 
 .section__title {
   -ms-flex-preferred-size: 100%;
