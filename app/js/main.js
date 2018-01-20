@@ -2,7 +2,7 @@
     // Service worker registeration
 
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('serviceworker.js')
+        navigator.serviceWorker.register('./serviceworker.js')
         .then(function(registration) {
             console.log('Service worker registration done, scope is:', registration.scope);
         })
@@ -39,13 +39,13 @@
 
     function changeFontColor(bgColor) {
         let colorObject = changeRgbToObject(bgColor)
-        rInteger = parseInt(colorObject.r);
-        gInteger = parseInt(colorObject.g);
-        bInteger = parseInt(colorObject.b);
+        let rInteger = parseInt(colorObject.r);
+        let gInteger = parseInt(colorObject.g);
+        let bInteger = parseInt(colorObject.b);
         function brightness() {
-            rValue = rInteger * rInteger * 0.299;
-            gValue = gInteger * gInteger * 0.587;
-            bValue = bInteger * bInteger * 0.114;
+            let rValue = rInteger * rInteger * 0.299;
+            let gValue = gInteger * gInteger * 0.587;
+            let bValue = bInteger * bInteger * 0.114;
             let sum = Math.sqrt(rValue + gValue + bValue);
             return Math.trunc(sum);
         }
