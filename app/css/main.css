@@ -87,6 +87,10 @@
   .grid-item__button--delete {
     top: 1.5rem;
     right: 0.5rem; }
+  .grid-item__button--apply {
+    display: block;
+    position: static;
+    margin: 1rem auto; }
 
 .grid-item__options {
   padding: 3rem 1rem 1rem 1rem; }
