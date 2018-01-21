@@ -188,6 +188,9 @@
   @media screen and (max-width: 800px) {
     .grid-options__button {
       margin: 1rem 0; } }
+  .grid-options__button--apply {
+    margin: 0 auto;
+    padding: 0 0 0 1rem; }
 
 .grid-options__help-box {
   position: fixed;

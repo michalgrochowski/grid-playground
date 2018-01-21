@@ -48,6 +48,10 @@
     @include mq-max(800px) {
         margin: 1rem 0;
     }
+    &--apply {
+        margin: 0 auto;
+        padding: 0 0 0 1rem ;
+    }
 }
 
 .grid-options__help-box {

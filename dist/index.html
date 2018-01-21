@@ -70,7 +70,7 @@
 		<h1 class="container__title">CSS Grid Playground</h1>
 		<p class="container__subtitle">Play with the grid options below and see how the layout changes.</p>
 		<p class="container__subtitle">You can also add, edit or remove items from the grid.</p>
-		<p class="container__subtitle">Just put a desired value in the input box and click anywhere to see how it changes the grid.</p>
+		<p class="container__subtitle">Just put a desired value in the input box and click the "Apply" button to see the grid changes.</p>
 		<p class="container__subtitle">Although it is fully responsive, I would recommend using it only on desktop - it may easily get too cluttered on mobile.</p>
 		<section id="" class="section">  
 			<h2 class="section__title">Here is your grid:</h2>
@@ -104,6 +104,7 @@
 				<button id="optionsButton" class="grid-options__button grid-options__button--options"><span class="icon-cog"></span> Grid options</button>
 			</div>
 			<div id="options-box" class="grid-options">
+				
 				<form class="options-form">
 					<fieldset class="options-form__fieldset">
 						<legend class="options-form__legend">Grid options:</legend>
@@ -131,6 +132,7 @@
 						</select>
 					</fieldset>
 				</form>
+				<button id="gridOptionsApply" class="grid-options__button grid-options__button--apply">Apply <span class="icon-ok"></span></button>
 			</div>
 			<div id="grid" class="grid-container">
 				<div class="grid-item">

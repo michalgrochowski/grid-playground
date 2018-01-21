@@ -23,7 +23,7 @@
 
     const GRID_ITEMS = document.getElementsByClassName("grid-item");
 
-    // get rgb color from random number
+    // Get rgb color from random number
 
     function getRandomBackground() {
         let hex = Math.floor(Math.random() * 0xFFFFFF);
@@ -40,6 +40,8 @@
             rgbObj[rgbKeys[i]] = color[i] || 1;
         return rgbObj;
     }
+
+    // Change font color based on a background-color using HSP algorithm to determine brightness
 
     function changeFontColor(bgColor) {
         let colorObject = changeRgbToObject(bgColor)
@@ -59,6 +61,8 @@
             return "rgb(0,0,0);"
         }
     }
+
+    // Change node background and font color
 
     function changeItemsBackground() {
         for (let item of GRID_ITEMS) {
@@ -92,18 +96,19 @@
     }
 
     // Change standard inputs value on mobile
+
     function changeGridValuesInInputs() {
-        if (window.matchMedia("max-width: 800px")) {
-            GRID_COLUMNS.setAttribute("value", "2");
-            GRID_ROWS.setAttribute("value", "3");
-            COLUMN_GAP.setAttribute("value", "5px");
-            ROW_GAP.setAttribute("value", "5px");
-        } else if (window.matchMedia("min-width: 801px")) {
+        if (window.matchMedia("min-width: 801px")) {
             GRID_COLUMNS.setAttribute("value", "3");
             GRID_ROWS.setAttribute("value", "3");
             COLUMN_GAP.setAttribute("value", "10px");
             ROW_GAP.setAttribute("value", "10px");
-        }
+        } else if (window.matchMedia("max-width: 800px")) {
+            GRID_COLUMNS.setAttribute("value", "2");
+            GRID_ROWS.setAttribute("value", "3");
+            COLUMN_GAP.setAttribute("value", "5px");
+            ROW_GAP.setAttribute("value", "5px");
+        } 
     }
 
     window.addEventListener("resize", () => {
@@ -136,51 +141,23 @@
     const COLUMN_GAP = document.getElementById("gridColumnGap");
     const ROW_GAP = document.getElementById("gridRowGap");
     const AUTOFLOW = document.getElementById("gridAutoFlow");
+    const GRID_OPTIONS_APPLY = document.getElementById("gridOptionsApply");
 
-    GRID_HEIGHT.addEventListener("change", () => {
-        GRID.style.height = GRID_HEIGHT.value;
-    });
-
-    GRID_WIDTH.addEventListener("change", () => {
-        GRID.style.width = GRID_WIDTH.value;
-    });
-
-    GRID_COLUMNS.addEventListener("change", () => {
+   GRID_OPTIONS_APPLY.addEventListener("click", () => {
+        OPTIONS_BOX.classList.toggle("grid-options--expanded");
         let columnsNumber = GRID_COLUMNS.value;
         let columnsSize = GRID_COLUMN_SIZE.value;
-        GRID.style.gridTemplateColumns = `repeat(${columnsNumber},${columnsSize})`;
-    });
-
-    GRID_ROWS.addEventListener("change", () => {
         let rowsNumber = GRID_ROWS.value;
         let rowsSize = GRID_ROW_SIZE.value;
-        GRID.style.gridTemplateRows = `repeat(${rowsNumber}, ${rowsSize})`;
-    });
-
-    GRID_COLUMN_SIZE.addEventListener("change", () => {
-        let columnsNumber = GRID_COLUMNS.value;
-        let columnsSize = GRID_COLUMN_SIZE.value;
-        GRID.style.gridTemplateColumns = `repeat(${columnsNumber},${columnsSize})`;
-    })
-
-    GRID_ROW_SIZE.addEventListener("change", () => {
-        let rowsNumber = GRID_ROWS.value;
-        let rowsSize = GRID_ROW_SIZE.value;
-        GRID.style.gridTemplateRows = `repeat(${rowsNumber}, ${rowsSize})`;
-    })
-
-    COLUMN_GAP.addEventListener("change", () => {
         let columnGap = COLUMN_GAP.value;
-        GRID.style.gridColumnGap = `${columnGap}`;
-    });
-
-    ROW_GAP.addEventListener("change", () => {
         let rowGap = ROW_GAP.value;
-        GRID.style.gridRowGap = `${rowGap}`;
-    });
-
-    AUTOFLOW.addEventListener("change", () => {
         let autoFlow = AUTOFLOW.value;
+        GRID.style.height = GRID_HEIGHT.value;
+        GRID.style.width = GRID_WIDTH.value;
+        GRID.style.gridTemplateColumns = `repeat(${columnsNumber},${columnsSize})`;
+        GRID.style.gridTemplateRows = `repeat(${rowsNumber}, ${rowsSize})`;
+        GRID.style.gridColumnGap = `${columnGap}`;
+        GRID.style.gridRowGap = `${rowGap}`;
         GRID.style.gridAutoFlow = `${autoFlow}`;
     });
 
