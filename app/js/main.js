@@ -55,9 +55,9 @@
             let sum = Math.sqrt(rValue + gValue + bValue);
             return Math.trunc(sum);
         }
-        if (brightness() < 100) {
+        if (brightness() < 120) {
             return "rgb(255,255,255)";
-        } else if (brightness() >= 100) {
+        } else if (brightness() >= 120) {
             return "rgb(0,0,0);"
         }
     }
@@ -184,7 +184,7 @@
         newForm.classList.add("grid-item__options");
         let newLabel = document.createElement("label");
         newLabel.classList.add("grid-item__label");
-        function createNewLabelAndInput(labelClass, inputClass, labelText, newBackground) {
+        function createNewLabelAndInput(labelClass, inputClass, labelText) {
             let newLabel = document.createElement("label");
             newLabel.classList.add("grid-item__label");
             newLabel.classList.add(labelClass);
@@ -200,12 +200,19 @@
         newApplyButton.appendChild(newApplyIcon);
         newItem.appendChild(newDeleteButton);
         newItem.style.backgroundColor = getRandomBackground();
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-start", "gridColumnStart", "grid-column-start:", newItem.style.backgroundColor));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-end", "gridColumnEnd", "grid-column-end:", newItem.style.backgroundColor));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-start", "gridRowStart", "grid-row-start:", newItem.style.backgroundColor));
-        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-end", "gridRowEnd", "grid-row-end:", newItem.style.backgroundColor));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-start", "gridColumnStart", "grid-column-start:"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--column-end", "gridColumnEnd", "grid-column-end:"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-start", "gridRowStart", "grid-row-start:"));
+        newForm.appendChild(createNewLabelAndInput("grid-item__label--row-end", "gridRowEnd", "grid-row-end:"));
         newItem.appendChild(newForm);
         newItem.appendChild(newApplyButton);
+        let newlabels = newItem.querySelectorAll(".grid-item__label");
+        for (let item of newlabels) {
+            let newColor = changeFontColor(item.parentNode.parentNode.style.backgroundColor);
+            item.style.color = newColor;
+            newDeleteButton.style.color = newColor;
+            newApplyButton.style.color = newColor;
+        }
         newDeleteButton.addEventListener("click", () => {
             newDeleteButton.parentNode.remove();
         });
