@@ -13,10 +13,11 @@
 
     // Turn off body overflow
 
+    const APP_BODY = document.getElementById("body");
+
     function overflow() {
-        let pageBody = document.getElementById("body");
-        pageBody.classList.toggle("overflow-on");
-        pageBody.classList.toggle("overflow-off");
+        APP_BODY.classList.toggle("overflow-on");
+        APP_BODY.classList.toggle("overflow-off");
     }
 
     // Random background-color of grid items
@@ -26,25 +27,25 @@
     // Get rgb color from random number
 
     function getRandomBackground() {
-        let hex = Math.floor(Math.random() * 0xFFFFFF);
-        return "#" + ("000000" + hex.toString(16)).substr(-6);
+        let hexColor = Math.floor(Math.random() * 0xFFFFFF);
+        return "#" + ("000000" + hexColor.toString(16)).substr(-6);
     }
 
     // Function that transforms rgb color value to object with properties of red, blue and green
 
     function changeRgbToObject(colorString) {
-        const rgbKeys = ['r', 'g', 'b'];
+        const RGB_KEYS = ['r', 'g', 'b'];
         let rgbObj = {};
         let color = colorString.replace(/^rgb?\(|\s+|\)$/g,'').split(',');
-        for (let i in rgbKeys)
-            rgbObj[rgbKeys[i]] = color[i] || 1;
+        for (let i in RGB_KEYS)
+            rgbObj[RGB_KEYS[i]] = color[i] || 1;
         return rgbObj;
     }
 
     // Change font color based on a background-color using HSP algorithm to determine brightness
 
     function changeFontColor(bgColor) {
-        let colorObject = changeRgbToObject(bgColor)
+        let colorObject = changeRgbToObject(bgColor);
         let rInteger = parseInt(colorObject.r);
         let gInteger = parseInt(colorObject.g);
         let bInteger = parseInt(colorObject.b);
@@ -58,7 +59,7 @@
         if (brightness() < 120) {
             return "rgb(255,255,255)";
         } else if (brightness() >= 120) {
-            return "rgb(0,0,0);"
+            return "rgb(0,0,0);";
         }
     }
 
@@ -113,7 +114,7 @@
 
     window.addEventListener("resize", () => {
         changeGridValuesInInputs();
-    })
+    });
 
     document.addEventListener("DOMContentLoaded", () => {
         changeItemsBackground();
@@ -231,7 +232,7 @@
         item.addEventListener("click", (event) => {
             event.target.parentNode.remove();
         });
-    };
+    }
 
     for (let item of REMOVE_ITEM_ICON) {
         item.addEventListener("click", (event) => {
@@ -239,14 +240,14 @@
         });
     }
 
-    // Change grid item properties
+    // Change grid item properties on click
 
     const GRID_ITEM_APPLY = document.getElementsByClassName("grid-item__button--apply");
 
     for (let item of GRID_ITEM_APPLY) {
         item.addEventListener("click", () => {
             changeGridItemProperties(item);
-        })
+        });
     }
     
     // Show the help modal
@@ -258,11 +259,11 @@
     HELP_BUTTON.addEventListener("click", () => {
         HELP_MODAL.classList.add("grid-options__help-box--visible");
         overflow();
-    })
+    });
 
     CLOSE_MODAL.addEventListener("click", () => {
         HELP_MODAL.classList.remove("grid-options__help-box--visible");
         overflow();
-    })
+    });
 
 })();
