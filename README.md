@@ -5,6 +5,7 @@ It's a little web app that I've made while I was learning CSS Grid and bored at 
 Right now you can:
 - add or delete grid items, 
 - change the number of rows and column, 
+- change size of rows and column, 
 - change grid container width and height, 
 - change the column and row gap,
 - change grid-auto-flow.
