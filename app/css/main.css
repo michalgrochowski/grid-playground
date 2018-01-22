@@ -136,6 +136,9 @@
     height: 700px;
     -webkit-transition: 0.5s all;
     transition: 0.5s all; }
+    @media screen and (max-width: 800px) {
+      .grid-options--expanded {
+        height: 800px; } }
 
 .grid-options__controls {
   width: 90%;

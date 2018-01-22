@@ -8,6 +8,9 @@
     &--expanded {
         height: 700px;
         transition: 0.5s all;
+        @include mq-max(800px) {
+            height: 800px;
+        }
     }
 }
 

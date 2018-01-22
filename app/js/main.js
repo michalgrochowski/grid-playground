@@ -98,12 +98,12 @@
     // Change standard inputs value on mobile
 
     function changeGridValuesInInputs() {
-        if (window.matchMedia("min-width: 801px")) {
+        if (window.matchMedia("(min-width: 801px)").matches) {
             GRID_COLUMNS.setAttribute("value", "3");
             GRID_ROWS.setAttribute("value", "3");
             COLUMN_GAP.setAttribute("value", "10px");
             ROW_GAP.setAttribute("value", "10px");
-        } else if (window.matchMedia("max-width: 800px")) {
+        } else if (window.matchMedia("(max-width: 800px)").matches) {
             GRID_COLUMNS.setAttribute("value", "2");
             GRID_ROWS.setAttribute("value", "3");
             COLUMN_GAP.setAttribute("value", "5px");
