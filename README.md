@@ -20,7 +20,7 @@ DICSLAIMER: There are no official definitions here - use MDN to see those.
 Cool features:
 - Each item has random generated background-color,
 - Each item labels and button font color is changed to white or black using HSP algorithm for brightness,
-- It's a PWA so it almost as good as native app,
+- It's a PWA so it's almost as good as native app,
 - There are some cool links at the bottom if you want to really master Grid,
 - Maybe it's not perfect, but it works!
 
