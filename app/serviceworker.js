@@ -1,4 +1,4 @@
-const CACHE_NAME = "css-grid-playground";
+const CACHE_NAME = "css-grid-playground-v2";
 const URLS_TO_CACHE  = [
     "https://michalgrochowski.github.io/grid-playground/dist/",
     "https://michalgrochowski.github.io/grid-playground/dist/index.html",
@@ -11,6 +11,7 @@ const URLS_TO_CACHE  = [
     "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.ttf",
     "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.woff",
     "https://michalgrochowski.github.io/grid-playground/dist/font/fontello.woff2",
+    "https://michalgrochowski.github.io/grid-playground/dist/img/playground.png",
     "https://michalgrochowski.github.io/grid-playground/dist/android-chrome-36x36.png",
     "https://michalgrochowski.github.io/grid-playground/dist/android-chrome-48x48.png",
     "https://michalgrochowski.github.io/grid-playground/dist/android-chrome-72x72.png",

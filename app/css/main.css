@@ -43,7 +43,7 @@
 .grid-container {
   display: grid;
   width: 90%;
-  height: 90%;
+  height: 950px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
@@ -331,11 +331,10 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-bottom: 3rem;
-  margin-top: 6rem; }
+  margin-top: 1rem; }
   @media screen and (max-width: 800px) {
     .bonus-materials {
-      margin-top: 16rem; } }
+      margin-top: 2rem; } }
 
 .bonus-materials__title {
   -ms-flex-preferred-size: 100%;
@@ -430,6 +429,9 @@ body {
       margin: 0.5rem 0;
       padding: 0 1rem;
       text-align: center; } }
+  .container__subtitle--bold {
+    font-weight: bold;
+    margin-top: 1rem; }
 
 .section {
   background-color: #ffffff;
@@ -459,6 +461,28 @@ body {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
   text-align: center; }
+
+.github-stars {
+  position: fixed;
+  top: 1.5rem;
+  left: 1rem; }
+  @media screen and (max-width: 800px) {
+    .github-stars {
+      position: static;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      margin-top: 1rem; } }
 
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */

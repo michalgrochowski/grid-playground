@@ -60,6 +60,10 @@ body {
         padding: 0 1rem;
         text-align: center;
     }
+    &--bold {
+        font-weight: bold;
+        margin-top: 1rem;
+    }
 }
 
 .section {
@@ -77,6 +81,17 @@ body {
 .section__title {
     flex-basis: 100%;
     text-align: center;
+}
+
+.github-stars {
+    position: fixed;
+    top: 1.5rem;
+    left: 1rem;
+    @include mq-max(800px) {
+        position: static;
+        @include flex-center-row;
+        margin-top: 1rem;
+    }
 }
 
 // Misc items

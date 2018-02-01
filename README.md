@@ -28,8 +28,12 @@ TODO:
 
 - ~~Newly added items doesn't change labels font color - couldn't get it right just yet, but I'll try to make it work.~~ - Seems like it's fixed in v1.4.0
 
+**If you like this project, consider giving it a star - it's always appreciated**
+
 Made entirely with HTML, CSS (Sass) and ES6 JavaScript.
 
-Live - https://michalgrochowski.github.io/grid-playground/dist
+Live - https://michalgrochowski.github.io/grid-playground/dist/
+
+
 
 License: MIT

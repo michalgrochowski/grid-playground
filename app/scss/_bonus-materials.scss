@@ -1,9 +1,8 @@
 .bonus-materials {
     @include flex-center-column;
-    padding-bottom: 3rem;
-    margin-top: 6rem;
+    margin-top: 1rem;
     @include mq-max(800px) {
-        margin-top: 16rem;
+        margin-top: 2rem;
     }
 }
 
