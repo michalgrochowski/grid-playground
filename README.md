@@ -11,7 +11,7 @@ Right now you can:
 - change grid-auto-flow.
 - edit every item properties. 
 
-But there will be more options in the next releases.
+But there (maybe) will be more options in the next releases.
 
 If you need help, you can click the "Nees help?" button which will open a modal box with all the basic grid properties used in this app.
 
@@ -24,13 +24,14 @@ Cool features:
 - There are some cool links at the bottom if you want to really master Grid,
 - Maybe it's not perfect, but it works!
 
+Made entirely with HTML, CSS (Sass) and ES6 JavaScript.
+
 TODO:
 
 - ~~Newly added items doesn't change labels font color - couldn't get it right just yet, but I'll try to make it work.~~ - Seems like it's fixed in v1.4.0
+- ...
 
-**If you like this project, consider giving it a star - it's always appreciated**
-
-Made entirely with HTML, CSS (Sass) and ES6 JavaScript.
+**If you like this project, consider giving it a star - it's always appreciated!**
 
 Live - https://michalgrochowski.github.io/grid-playground/dist/
 
