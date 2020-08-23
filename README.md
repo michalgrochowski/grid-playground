@@ -13,7 +13,7 @@ Right now you can:
 
 But there (maybe) will be more options in the next releases.
 
-If you need help, you can click the "Nees help?" button which will open a modal box with all the basic grid properties used in this app.
+If you need help, you can click the "Need help?" button which will open a modal box with all the basic grid properties used in this app.
 
 DICSLAIMER: There are no official definitions here - use MDN to see those.
 
